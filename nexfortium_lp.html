@@ -215,6 +215,41 @@
     .business-section { padding: 60px 0; }
     .cta-section { padding: 80px 20px; }
   }
+
+  /* ① 事業部カード hover発光 */
+  .business-item {
+    transition: transform 0.3s ease;
+  }
+  .business-item:hover {
+    transform: translateY(-4px);
+  }
+  .business-item:hover img {
+    box-shadow: 0 8px 60px rgba(201,168,76,0.4);
+    border-color: rgba(201,168,76,0.6);
+  }
+
+  /* ② ゴールドラインアニメーション */
+  @keyframes goldFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  .section-divider {
+    background: linear-gradient(90deg, transparent, var(--gold), var(--gold-light), var(--gold), transparent) !important;
+    background-size: 200% 200% !important;
+    animation: goldFlow 3s ease infinite;
+  }
+
+  /* ③ スクロールフェードイン */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
 </style>
 </head>
 <body>
@@ -335,6 +370,21 @@
   }, { threshold: 0.1 });
 
   document.querySelectorAll('.business-item, .org-section img').forEach(el => {
+    observer.observe(el);
+  });
+</script>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.business-item, .org-section img').forEach(el => {
+    el.classList.add('fade-in');
     observer.observe(el);
   });
 </script>
