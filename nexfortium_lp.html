@@ -325,5 +325,18 @@
   <p>© 2026 NEXFORTIUM HOLDINGS. All Rights Reserved.</p>
 </footer>
 
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.business-item, .org-section img').forEach(el => {
+    observer.observe(el);
+  });
+</script>
 </body>
 </html>
