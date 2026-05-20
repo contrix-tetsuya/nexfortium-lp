@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ライバー募集 | NEXFORTIUM HOLDINGS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --dark: #0A0618;
+      --dark-2: #100D22;
+      --purple: #7B5EA7;
+      --purple-light: #9B7EC8;
+      --gold: #C8A84B;
+      --gold-light: #E2C87A;
+      --white: #F0EAD8;
+      --muted: #8090A8;
+      --line-green: #06C755;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      background: #fff;
+      color: #1A1A2E;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--dark);
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 0 28px 56px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background:
+        radial-gradient(ellipse 60% 40% at 50% 20%, #7B5EA718 0%, transparent 60%),
+        radial-gradient(ellipse 80% 60% at 80% 80%, #C8A84B08 0%, transparent 50%);
+    }
+
+    /* ヒーロー画像エリア — 実際の画像に差し替えてください */
+    .hero-image {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 65%;
+      overflow: hidden;
+    }
+    .hero-image img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      opacity: 0.6;
+    }
+    .hero-image-placeholder {
+      width: 100%; height: 100%;
+      background: linear-gradient(160deg, #1A0D35 0%, #0D0820 60%);
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 8px;
+    }
+    .hero-image-placeholder span {
+      font-size: 11px; color: #7B5EA744;
+      letter-spacing: 0.14em; text-transform: uppercase;
+    }
+
+    .hero-gradient {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 70%;
+      background: linear-gradient(to top, var(--dark) 40%, transparent 100%);
+    }
+
+    .hero-content {
+      position: relative; z-index: 2;
+      text-align: center;
+    }
+
+    .hero-eyebrow {
+      font-size: 10px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: #3A4A5A;
+      margin-bottom: 24px;
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .hero-title {
+      font-size: clamp(22px, 6vw, 28px);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.6;
+      letter-spacing: 0.06em;
+      margin-bottom: 20px;
+    }
+
+    .hero-rule {
+      width: 20px; height: 0.5px;
+      background: var(--purple);
+      margin: 0 auto 20px;
+    }
+
+    .hero-sub {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 2.0;
+      margin-bottom: 40px;
+      letter-spacing: 0.04em;
+    }
+
+    .hero-cta {
+      display: block;
+      width: 100%;
+      background: var(--line-green);
+      color: #fff;
+      font-size: 15px;
+      font-weight: 700;
+      padding: 18px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      text-align: center;
+      transition: opacity 0.2s;
+    }
+    .hero-cta:hover { opacity: 0.9; }
+
+    /* ── SECTIONS ── */
+    .sec { padding: 72px 28px; }
+    .sec-alt { background: #FAF8FF; }
+    .sec-dark { background: var(--dark-2); }
+
+    .s-label {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 11px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .s-label-purple { color: var(--purple-light); }
+    .s-label-gold { color: var(--gold); }
+
+    .s-title {
+      font-size: clamp(20px, 5vw, 24px);
+      font-weight: 700;
+      line-height: 1.6;
+      letter-spacing: 0.03em;
+    }
+    .s-title-dark { color: #1A1A2E; }
+    .s-title-light { color: var(--white); }
+
+    .s-body {
+      font-size: 14px;
+      line-height: 2.0;
+      margin-top: 20px;
+      letter-spacing: 0.02em;
+    }
+    .s-body-muted { color: #777; }
+    .s-body-light { color: var(--muted); }
+
+    /* ── WHY ── */
+    .why-quote {
+      margin-top: 40px;
+      padding: 32px 24px;
+      border-left: 1.5px solid #7B5EA766;
+      background: #fff;
+      border-radius: 0 12px 12px 0;
+      box-shadow: 0 2px 24px #7B5EA708;
+    }
+    .why-quote-main {
+      font-size: 16px;
+      font-weight: 700;
+      color: #1A1A2E;
+      line-height: 1.8;
+      margin-bottom: 16px;
+      letter-spacing: 0.03em;
+    }
+    .why-quote-main em {
+      font-style: normal;
+      color: var(--purple);
+    }
+    .why-quote-sub {
+      font-size: 13px;
+      color: #888;
+      line-height: 1.9;
+    }
+
+    /* ── STAGE ── */
+    .stage-list {
+      margin-top: 48px;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+    .stage-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+    .stage-dash {
+      width: 20px;
+      height: 0.5px;
+      background: var(--gold);
+      margin-top: 13px;
+      flex-shrink: 0;
+    }
+    .stage-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      color: var(--gold);
+      margin-bottom: 8px;
+      display: block;
+    }
+    .stage-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.6;
+      margin-bottom: 8px;
+    }
+    .stage-desc {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.9;
+    }
+
+    /* ── SAFETY ── */
+    .safety-list {
+      margin-top: 40px;
+      display: flex;
+      flex-direction: column;
+      border: 0.5px solid #E8E0FF;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #fff;
+    }
+    .safety-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 24px 20px;
+      border-bottom: 0.5px solid #F0EBFF;
+    }
+    .safety-item:last-child { border-bottom: none; }
+    .safety-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      color: var(--gold);
+      font-weight: 600;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .safety-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #1A1A2E;
+      margin-bottom: 6px;
+      line-height: 1.5;
+    }
+    .safety-desc {
+      font-size: 12px;
+      color: #888;
+      line-height: 1.9;
+    }
+
+    /* ── CTA BOTTOM ── */
+    .cta-bottom {
+      padding: 72px 28px;
+      background: var(--dark);
+      text-align: center;
+    }
+    .cta-badge {
+      display: inline-block;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      color: var(--gold);
+      border: 0.5px solid #C8A84B44;
+      padding: 7px 20px;
+      border-radius: 20px;
+      margin-bottom: 32px;
+      font-family: 'Cormorant Garamond', serif;
+    }
+    .cta-title {
+      font-size: clamp(18px, 5vw, 22px);
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 12px;
+      line-height: 1.7;
+      letter-spacing: 0.04em;
+    }
+    .cta-sub {
+      font-size: 12px;
+      color: #3A4A5A;
+      margin-bottom: 40px;
+      line-height: 2.0;
+      letter-spacing: 0.02em;
+    }
+    .btn-line {
+      display: block;
+      width: 100%;
+      background: var(--line-green);
+      color: #fff;
+      font-size: 15px;
+      font-weight: 700;
+      padding: 18px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      margin-bottom: 12px;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      text-align: center;
+      transition: opacity 0.2s;
+    }
+    .btn-line:hover { opacity: 0.9; }
+    .btn-form {
+      display: block;
+      width: 100%;
+      background: transparent;
+      color: var(--purple-light);
+      font-size: 13px;
+      font-weight: 500;
+      padding: 14px;
+      border-radius: 8px;
+      border: 0.5px solid #7B5EA766;
+      cursor: pointer;
+      text-decoration: none;
+      text-align: center;
+      transition: background 0.2s;
+    }
+    .btn-form:hover { background: #7B5EA710; }
+    .cta-note {
+      font-size: 11px;
+      color: #1E2A3A;
+      margin-top: 20px;
+      letter-spacing: 0.06em;
+    }
+    .form-label {
+      font-size: 11px;
+      color: #2A3A4A;
+      margin-bottom: 10px;
+      letter-spacing: 0.04em;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      padding: 32px 28px;
+      background: #060410;
+      text-align: center;
+    }
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--gold);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .footer-note {
+      font-size: 10px;
+      color: #1A2030;
+      letter-spacing: 0.08em;
+      line-height: 1.8;
+    }
+
+    /* ── FLOATING LINE BUTTON ── */
+    .floating-line {
+      position: fixed;
+      bottom: 24px;
+      right: 20px;
+      z-index: 100;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      animation: float 3s ease-in-out infinite;
+    }
+    .floating-line-circle {
+      width: 56px;
+      height: 56px;
+      background: var(--line-green);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 16px #06C75540;
+      transition: transform 0.2s;
+    }
+    .floating-line:hover .floating-line-circle {
+      transform: scale(1.08);
+    }
+    .floating-line-circle svg {
+      width: 28px;
+      height: 28px;
+      fill: #fff;
+    }
+    .floating-line-label {
+      font-size: 10px;
+      color: var(--line-green);
+      font-weight: 700;
+      background: #fff;
+      padding: 3px 10px;
+      border-radius: 10px;
+      letter-spacing: 0.06em;
+      box-shadow: 0 2px 8px #00000010;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+
+    <!-- ヒーロー画像: imgタグのsrcを実際の画像パスに変更してください -->
+    <div class="hero-image">
+      <div class="hero-image-placeholder">
+        <span>hero image</span>
+      </div>
+      <!-- 実際の画像に変える場合: -->
+      <!-- <img src="images/hero.jpg" alt="ライバーイメージ"> -->
+    </div>
+
+    <div class="hero-gradient"></div>
+
+    <div class="hero-content">
+      <p class="hero-eyebrow">NEXFORTIUM HOLDINGS</p>
+      <h1 class="hero-title">あなたの言葉が、<br>誰かの一日を変える。</h1>
+      <div class="hero-rule"></div>
+      <p class="hero-sub">輝ける瞬間は、必ずやってくる。<br>あなたの舞台を、一緒に作りませんか。</p>
+      <a href="https://line.me/ti/p/tF-4T_VJTV" class="hero-cta" target="_blank" rel="noopener">LINEで無料相談する</a>
+    </div>
+  </section>
+
+  <!-- WHY LIVER -->
+  <section class="sec">
+    <span class="s-label s-label-purple">why liver</span>
+    <h2 class="s-title s-title-dark">始めるのは、<br>誰でもできる。</h2>
+    <p class="s-body s-body-muted">ライブ配信は、今や誰でも簡単に始められる時代です。<br>でも、続けている人の数は、始めた人の数とは全く違います。</p>
+    <div class="why-quote">
+      <p class="why-quote-main">誰かの心に残る言葉を<br>届けたいと思ったとき、<br>それは初めて、<em>本当の仕事になる。</em></p>
+      <p class="why-quote-sub">その意味を求める人と、一緒に歩みたい。<br>それが、私たちがライバーを探している理由です。</p>
+    </div>
+  </section>
+
+  <!-- STAGE -->
+  <section class="sec sec-dark">
+    <span class="s-label s-label-gold">our stage</span>
+    <h2 class="s-title s-title-light">ここでしか<br>得られない舞台がある</h2>
+    <p class="s-body s-body-light">配信の中だけで終わらない。グローバル企業だからこそ、あなたの活躍の場は世界につながっています。</p>
+    <div class="stage-list">
+      <div class="stage-item">
+        <div class="stage-dash"></div>
+        <div>
+          <span class="stage-num">01 — GLOBAL</span>
+          <p class="stage-title">世界につながる環境が、<br>あなたの背景になる</p>
+          <p class="stage-desc">国内にとどまらないグローバルな舞台で、あなたの言葉は世界に届く可能性を持ちます。</p>
+        </div>
+      </div>
+      <div class="stage-item">
+        <div class="stage-dash"></div>
+        <div>
+          <span class="stage-num">02 — REAL EVENT</span>
+          <p class="stage-title">ホテル・宝石事業と連動した<br>リアルな場が生まれる</p>
+          <p class="stage-desc">グループ事業と連動したイベントやPR活動が、配信を超えた活躍の場を作ります。</p>
+        </div>
+      </div>
+      <div class="stage-item">
+        <div class="stage-dash"></div>
+        <div>
+          <span class="stage-num">03 — AMBASSADOR</span>
+          <p class="stage-title">グローバル企業の顔として、<br>世界を発信する</p>
+          <p class="stage-desc">単なる配信者ではなく、NEXFORTIUMのアンバサダーとして活躍できるポジションがあります。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SAFETY -->
+  <section class="sec sec-alt">
+    <span class="s-label s-label-purple">safety</span>
+    <h2 class="s-title s-title-dark">安心して、<br>長く続けられる環境</h2>
+    <div class="safety-list">
+      <div class="safety-item">
+        <span class="safety-num">01</span>
+        <div>
+          <p class="safety-title">無理な勧誘は一切ありません</p>
+          <p class="safety-desc">ご自身のペースを大切に。話を聞くだけでも、いつでも大歓迎です。</p>
+        </div>
+      </div>
+      <div class="safety-item">
+        <span class="safety-num">02</span>
+        <div>
+          <p class="safety-title">専属スタッフが伴走します</p>
+          <p class="safety-desc">困ったときにすぐ相談できる担当者がつきます。一人で悩まなくていい環境があります。</p>
+        </div>
+      </div>
+      <div class="safety-item">
+        <span class="safety-num">03</span>
+        <div>
+          <p class="safety-title">グローバル企業としての安定した基盤</p>
+          <p class="safety-desc">世界に展開するグループ企業が母体。長期的にあなたの活動を支えます。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BOTTOM -->
+  <section class="cta-bottom">
+    <div class="cta-badge">✦ 現在、初期メンバーを募集しています ✦</div>
+    <p class="cta-title">まず、話を<br>聞いてみてください。</p>
+    <p class="cta-sub">まだ決めていなくて大丈夫です。<br>「話だけ聞きたい」という方も、大歓迎です。</p>
+    <a href="https://line.me/ti/p/tF-4T_VJTV" class="btn-line" target="_blank" rel="noopener">LINEで無料相談する</a>
+    <p class="form-label">LINEが不安な方はこちら</p>
+    <!-- フォームURLを設定してください -->
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLScymo1UhL03RQUgHfWqSzCQ51PhsQBI2rl909LzVNuYcu5gNg/viewform?usp=publish-editor" class="btn-form" target="_blank" rel="noopener">お問い合わせフォームへ</a>
+    <p class="cta-note">営業的な連絡は一切しません</p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p class="footer-logo">NEXFORTIUM HOLDINGS</p>
+    <p class="footer-note">報酬・条件については個別相談にてご案内します</p>
+  </footer>
+
+  <!-- FLOATING LINE BUTTON -->
+  <a href="https://line.me/ti/p/tF-4T_VJTV" class="floating-line" target="_blank" rel="noopener" aria-label="LINEで相談する">
+    <div class="floating-line-circle">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2C6.48 2 2 6.03 2 11c0 2.7 1.3 5.1 3.3 6.8L4 22l4.4-1.4C9.5 21.2 10.7 21.5 12 21.5c5.52 0 10-4.03 10-9.4C22 6.03 17.52 2 12 2z"/>
+      </svg>
+    </div>
+    <span class="floating-line-label">LINE相談</span>
+  </a>
+
+</body>
+</html>
