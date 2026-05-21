@@ -384,44 +384,46 @@
     /* ── FLOATING LINE BUTTON ── */
     .floating-line {
       position: fixed;
-      bottom: 24px;
+      bottom: 28px;
       right: 20px;
       z-index: 100;
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       align-items: center;
-      gap: 6px;
+      gap: 10px;
       text-decoration: none;
+      background: #9B7EC8;
+      border-radius: 40px;
+      padding: 12px 20px 12px 14px;
+      box-shadow: 0 4px 20px #7B5EA750;
+      transition: opacity 0.2s, transform 0.2s;
       animation: float 3s ease-in-out infinite;
     }
+    .floating-line:hover {
+      opacity: 0.9;
+      transform: translateY(-2px);
+    }
     .floating-line-circle {
-      width: 56px;
-      height: 56px;
-      background: var(--line-green);
+      width: 36px;
+      height: 36px;
+      background: #fff;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 4px 16px #06C75540;
-      transition: transform 0.2s;
-    }
-    .floating-line:hover .floating-line-circle {
-      transform: scale(1.08);
+      flex-shrink: 0;
     }
     .floating-line-circle svg {
-      width: 28px;
-      height: 28px;
-      fill: #fff;
+      width: 20px;
+      height: 20px;
+      fill: #9B7EC8;
     }
     .floating-line-label {
-      font-size: 16px;
-      color: var(--line-green);
+      font-size: 14px;
+      color: #fff;
       font-weight: 700;
-      background: #fff;
-      padding: 3px 10px;
-      border-radius: 10px;
       letter-spacing: 0.06em;
-      box-shadow: 0 2px 8px #00000010;
+      white-space: nowrap;
     }
     @keyframes float {
       0%, 100% { transform: translateY(0); }
