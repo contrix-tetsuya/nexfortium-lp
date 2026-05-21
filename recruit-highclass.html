@@ -4,21 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>採用情報 | NEXFORTIUM HOLDINGS</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
       --dark: #080E1A;
-      --dark-2: #0D1525;
       --gold: #C8A84B;
-      --gold-light: #E2C87A;
       --white: #F0EAD8;
-      
-      --muted: #A0B4C8;
-      --border: #ffffff0A;
+      --text: #C8D4E0;
+      --muted: #8090A8;
+      --dim: #607080;
+      --border: rgba(255,255,255,0.06);
     }
 
     html { scroll-behavior: smooth; }
@@ -31,64 +28,57 @@
       overflow-x: hidden;
     }
 
-    /* ── HERO ── */
+    /* HERO */
     .hero {
       display: grid;
-      grid-template-columns: 320px 1fr;
+      grid-template-columns: 300px 1fr;
       min-height: 100svh;
-      position: relative;
     }
 
-    /* 左：縦動画 */
-    .hero-video-col {
+    .hero-left {
       position: relative;
       overflow: hidden;
       background: #040810;
     }
 
-    .hero-video-col iframe {
+    .hero-left iframe {
       position: absolute;
-      top: 50%;
-      left: 50%;
+      top: 50%; left: 50%;
       transform: translate(-50%, -50%);
-      width: 100%;
-      height: 100%;
+      width: 100%; height: 100%;
       border: none;
       pointer-events: none;
     }
 
-    .hero-video-overlay {
+    .hero-left-overlay {
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
-      background: linear-gradient(to right, transparent 60%, var(--dark) 100%);
+      background: linear-gradient(to right, transparent 50%, var(--dark) 100%);
       z-index: 1;
     }
 
-    /* 右：テキスト */
-    .hero-text-col {
+    .hero-right {
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
-      padding: 48px 40px 56px 40px;
-      position: relative;
+      padding: 48px 48px 64px 40px;
     }
 
-    .hero-eyebrow {
+    .eyebrow {
       font-family: 'Cormorant Garamond', serif;
       font-size: 11px;
-      letter-spacing: 0.28em;
+      letter-spacing: 0.26em;
       text-transform: uppercase;
-      color: #6080A0;
-      margin-bottom: 28px;
+      color: var(--dim);
+      margin-bottom: 24px;
     }
 
     .hero-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(36px, 4vw, 52px);
+      font-size: clamp(34px, 4vw, 48px);
       font-weight: 300;
       color: var(--white);
       line-height: 1.3;
-      letter-spacing: 0.02em;
       margin-bottom: 20px;
     }
 
@@ -97,23 +87,22 @@
       color: var(--gold);
     }
 
-    .hero-rule {
+    .rule {
       width: 24px;
       height: 0.5px;
       background: var(--gold);
-      margin-bottom: 24px;
+      margin-bottom: 20px;
     }
 
     .hero-sub {
       font-size: 13px;
       color: var(--muted);
-      line-height: 2.0;
-      margin-bottom: 48px;
-      max-width: 360px;
+      line-height: 2;
+      margin-bottom: 40px;
       font-weight: 300;
     }
 
-    .hero-scroll {
+    .scroll-hint {
       display: flex;
       align-items: center;
       gap: 12px;
@@ -121,40 +110,65 @@
       font-size: 11px;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: #7090A8;
+      color: var(--dim);
     }
 
-    .hero-scroll-line {
-      width: 48px;
+    .scroll-hint-line {
+      width: 40px;
       height: 0.5px;
-      background: #2A3A4A;
+      background: var(--dim);
     }
 
-    /* ── MANIFESTO ── */
-    .manifesto {
-      padding: 56px 48px;
-      max-width: 800px; padding: 56px 48px;
-      margin: 0 auto;
-      text-align: center;
+    /* SECTIONS */
+    .sec {
+      padding: 72px 48px;
+      border-top: 0.5px solid var(--border);
     }
 
-    .manifesto-label {
+    .sec-inner { max-width: 960px; margin: 0 auto; }
+
+    .s-label {
       font-family: 'Cormorant Garamond', serif;
       font-size: 11px;
-      letter-spacing: 0.28em;
+      letter-spacing: 0.26em;
       text-transform: uppercase;
       color: var(--gold);
-      margin-bottom: 32px;
+      margin-bottom: 16px;
       display: block;
+    }
+
+    .s-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(26px, 3vw, 38px);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.4;
+      margin-bottom: 14px;
+    }
+
+    .s-body {
+      font-size: 13px;
+      color: var(--text);
+      line-height: 2;
+      font-weight: 300;
+      max-width: 560px;
+    }
+
+    /* MANIFESTO */
+    .manifesto {
+      padding: 80px 48px;
+      border-top: 0.5px solid var(--border);
+      text-align: center;
     }
 
     .manifesto-text {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(22px, 3vw, 32px);
+      font-size: clamp(20px, 2.5vw, 30px);
       font-weight: 300;
       color: var(--white);
-      line-height: 1.8;
-      letter-spacing: 0.03em;
+      line-height: 1.9;
+      max-width: 700px;
+      margin: 0 auto;
     }
 
     .manifesto-text em {
@@ -162,101 +176,54 @@
       color: var(--gold);
     }
 
-    /* ── SECTIONS ── */
-    .sec {
-      padding: 56px 48px;
-      border-top: 0.5px solid var(--border);
-    }
-
-    .sec-inner {
-      max-width: 960px;
-      margin: 0 auto;
-    }
-
-    .s-label {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 11px;
-      letter-spacing: 0.28em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 20px;
-      display: block;
-    }
-
-    .s-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(28px, 3vw, 40px);
-      font-weight: 300;
-      color: var(--white);
-      line-height: 1.4;
-      letter-spacing: 0.02em;
-      margin-bottom: 16px;
-    }
-
-    .s-body {
-      font-size: 13px;
-      color: var(--muted);
-      line-height: 2.0;
-      font-weight: 300;
-      max-width: 560px;
-    }
-
-    /* ── STAGE GRID ── */
+    /* STAGE GRID */
     .stage-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 0.5px;
+      gap: 1px;
       background: var(--border);
-      margin-top: 40px;
       border: 0.5px solid var(--border);
+      margin-top: 40px;
     }
 
     .stage-item {
       background: var(--dark);
-      padding: 28px 24px;
-      transition: background 0.3s;
+      padding: 32px 28px;
     }
 
-    .stage-item:hover {
-      background: #0D1525;
-    }
-
-    .stage-item-num {
+    .stage-num {
       font-family: 'Cormorant Garamond', serif;
       font-size: 11px;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.18em;
       color: var(--gold);
-      margin-bottom: 16px;
+      margin-bottom: 14px;
       display: block;
     }
 
-    .stage-item-title {
+    .stage-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 20px;
+      font-size: 18px;
       font-weight: 400;
       color: var(--white);
       line-height: 1.5;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
 
-    .stage-item-desc {
+    .stage-desc {
       font-size: 12px;
-      color: var(--muted);
+      color: var(--text);
       line-height: 1.9;
       font-weight: 300;
     }
 
-    /* ── WHO ── */
-    .who-list {
-      list-style: none;
-      margin-top: 40px;
-    }
+    /* WHO */
+    .who-list { list-style: none; margin-top: 40px; }
 
     .who-item {
       display: flex;
       align-items: flex-start;
-      gap: 24px;
-      padding: 20px 0;
+      gap: 20px;
+      padding: 22px 0;
       border-bottom: 0.5px solid var(--border);
     }
 
@@ -264,59 +231,59 @@
     .who-item:last-child { border-bottom: none; padding-bottom: 0; }
 
     .who-dash {
-      width: 20px;
+      width: 16px;
       height: 0.5px;
       background: var(--gold);
-      margin-top: 12px;
+      margin-top: 11px;
       flex-shrink: 0;
     }
 
-    .who-text {
+    .who-strong {
       font-size: 15px;
-      color: #A0B0C0;
+      font-weight: 500;
+      color: var(--white);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .who-desc {
+      font-size: 13px;
+      color: var(--text);
       line-height: 1.8;
       font-weight: 300;
     }
 
-    .who-text strong {
-      color: var(--white);
-      font-weight: 500;
-      display: block;
-      margin-bottom: 4px;
-      font-size: 16px;
-    }
-
-    /* ── NOT FOR ── */
+    /* NOT FOR */
     .notfor {
-      padding: 40px 40px 40px 32px;
+      padding: 48px 48px 48px 44px;
       border-top: 0.5px solid var(--border);
       border-left: 1px solid var(--gold);
       margin: 0 48px;
-      max-width: 640px;
+      max-width: 600px;
     }
 
     .notfor-label {
       font-family: 'Cormorant Garamond', serif;
       font-size: 11px;
-      letter-spacing: 0.24em;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: #6080A0;
-      margin-bottom: 20px;
+      color: var(--dim);
+      margin-bottom: 16px;
       display: block;
     }
 
     .notfor-text {
       font-size: 14px;
-      color: #8090A0;
+      color: var(--muted);
       line-height: 1.9;
       font-weight: 300;
     }
 
-    /* ── FACTS ── */
+    /* FACTS */
     .facts-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 0.5px;
+      gap: 1px;
       background: var(--border);
       border: 0.5px solid var(--border);
       margin-top: 40px;
@@ -324,7 +291,7 @@
 
     .fact-item {
       background: var(--dark);
-      padding: 28px 24px;
+      padding: 32px 28px;
     }
 
     .fact-num {
@@ -333,86 +300,81 @@
       font-weight: 400;
       color: var(--white);
       margin-bottom: 8px;
-      letter-spacing: 0;
+      line-height: 1;
+      display: block;
     }
 
     .fact-label {
-      font-size: 11px;
-      color: #6080A0;
+      font-size: 12px;
+      color: var(--muted);
       line-height: 1.6;
-      letter-spacing: 0.06em;
     }
 
     .facts-note {
-      margin-top: 32px;
-      padding-top: 32px;
+      margin-top: 28px;
+      padding-top: 28px;
       border-top: 0.5px solid var(--border);
       font-size: 12px;
-      color: #7090A8;
+      color: var(--muted);
       line-height: 1.8;
-      letter-spacing: 0.04em;
     }
 
     .facts-note strong {
-      color: #6080A0;
+      color: var(--text);
     }
 
-    /* ── CTA ── */
+    /* CTA */
     .cta {
-      padding: 56px 48px;
+      padding: 80px 48px;
       text-align: center;
       border-top: 0.5px solid var(--border);
     }
 
-    .cta-quote {
+    .cta-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(24px, 3vw, 36px);
+      font-size: clamp(22px, 3vw, 34px);
       font-weight: 300;
       color: var(--white);
       line-height: 1.6;
-      margin-bottom: 16px;
-      letter-spacing: 0.02em;
+      margin-bottom: 14px;
     }
 
     .cta-sub {
       font-size: 13px;
-      color: #7090A8;
-      margin-bottom: 48px;
+      color: var(--muted);
+      margin-bottom: 40px;
       line-height: 1.9;
       font-weight: 300;
     }
 
     .cta-btn {
       display: inline-block;
-      border: 0.5px solid #C8A84B44;
+      border: 0.5px solid rgba(200,168,75,0.4);
       color: var(--gold);
       background: transparent;
       font-family: 'Cormorant Garamond', serif;
       font-size: 13px;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      padding: 16px 48px;
+      padding: 14px 44px;
       cursor: pointer;
       text-decoration: none;
-      transition: background 0.3s, border-color 0.3s;
+      transition: background 0.3s;
     }
 
-    .cta-btn:hover {
-      background: #C8A84B0A;
-      border-color: #C8A84B88;
-    }
+    .cta-btn:hover { background: rgba(200,168,75,0.06); }
 
     .cta-fine {
       font-family: 'Cormorant Garamond', serif;
       font-size: 11px;
-      color: #7090A8;
+      color: var(--dim);
       margin-top: 20px;
       letter-spacing: 0.14em;
     }
 
-    /* ── FOOTER ── */
+    /* FOOTER */
     .footer {
-      padding: 28px 48px;
+      padding: 32px 48px;
       border-top: 0.5px solid var(--border);
       display: flex;
       align-items: center;
@@ -421,7 +383,7 @@
 
     .footer-logo {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 600;
       color: var(--gold);
       letter-spacing: 0.18em;
@@ -430,85 +392,58 @@
 
     .footer-note {
       font-size: 11px;
-      color: #7090A8;
-      letter-spacing: 0.08em;
+      color: var(--dim);
+      letter-spacing: 0.06em;
     }
 
-    /* ── FLOATING LINE ── */
-    .floating-line {
+    /* FLOATING */
+    .floating {
       position: fixed;
-      bottom: 28px;
-      right: 24px;
+      bottom: 24px;
+      right: 20px;
       z-index: 100;
       display: flex;
-      flex-direction: row;
       align-items: center;
       gap: 10px;
       text-decoration: none;
       background: #0D1525;
-      border: 0.5px solid #C8A84B33;
-      border-radius: 2px;
-      padding: 12px 20px 12px 14px;
-      transition: background 0.2s, border-color 0.2s;
+      border: 0.5px solid rgba(200,168,75,0.3);
+      padding: 11px 18px 11px 12px;
+      transition: background 0.2s;
     }
 
-    .floating-line:hover {
-      background: #162030;
-      border-color: #C8A84B66;
-    }
+    .floating:hover { background: #162030; }
 
-    .floating-line-icon {
-      width: 28px;
-      height: 28px;
+    .floating-icon {
+      width: 26px; height: 26px;
       background: var(--gold);
-      border-radius: 2px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: flex; align-items: center; justify-content: center;
       flex-shrink: 0;
     }
 
-    .floating-line-icon svg {
-      width: 16px;
-      height: 16px;
-      fill: var(--dark);
-    }
+    .floating-icon svg { width: 15px; height: 15px; fill: var(--dark); }
 
-    .floating-line-label {
+    .floating-label {
       font-family: 'Cormorant Garamond', serif;
       font-size: 12px;
       color: var(--gold);
       font-weight: 600;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       white-space: nowrap;
     }
 
-    /* ── MOBILE ── */
+    /* MOBILE */
     @media (max-width: 768px) {
-      .hero {
-        grid-template-columns: 1fr;
-        grid-template-rows: 50vh auto;
-      }
-
-      .hero-video-col {
-        height: 50vh;
-      }
-
-      .hero-video-overlay {
-        background: linear-gradient(to bottom, transparent 60%, var(--dark) 100%);
-      }
-
-      .hero-text-col {
-        padding: 40px 28px 56px;
-      }
-
-      .manifesto { padding: 80px 28px; }
-      .sec { padding: 80px 28px; }
-      .notfor { padding: 40px 28px; margin: 0 28px; }
-      .cta { padding: 80px 28px; }
-      .footer { padding: 32px 28px; flex-direction: column; gap: 12px; text-align: center; }
-
+      .hero { grid-template-columns: 1fr; grid-template-rows: 50vh auto; }
+      .hero-left { height: 50vh; }
+      .hero-left-overlay { background: linear-gradient(to bottom, transparent 50%, var(--dark) 100%); }
+      .hero-right { padding: 32px 24px 48px; }
+      .manifesto { padding: 56px 24px; }
+      .sec { padding: 56px 24px; }
+      .notfor { padding: 32px 24px 32px 20px; margin: 0 24px; }
+      .cta { padding: 56px 24px; }
+      .footer { padding: 24px; flex-direction: column; gap: 10px; text-align: center; }
       .stage-grid { grid-template-columns: 1fr; }
       .facts-grid { grid-template-columns: 1fr; }
     }
@@ -516,38 +451,28 @@
 </head>
 <body>
 
-  <!-- HERO -->
   <section class="hero">
-    <div class="hero-video-col">
-      <iframe
-        src="https://player.vimeo.com/video/1194308118?background=1&autoplay=1&loop=1&muted=1&quality=auto"
-        allow="autoplay; fullscreen"
-        allowfullscreen>
-      </iframe>
-      <div class="hero-video-overlay"></div>
+    <div class="hero-left">
+      <iframe src="https://player.vimeo.com/video/1194308118?background=1&autoplay=1&loop=1&muted=1&quality=auto" allow="autoplay; fullscreen" allowfullscreen></iframe>
+      <div class="hero-left-overlay"></div>
     </div>
-    <div class="hero-text-col">
-      <p class="hero-eyebrow">NEXFORTIUM HOLDINGS — 採用</p>
+    <div class="hero-right">
+      <p class="eyebrow">NEXFORTIUM HOLDINGS — 採用</p>
       <h1 class="hero-title">カオスな時を、<br>一緒に<em>刻める人</em>へ。</h1>
-      <div class="hero-rule"></div>
+      <div class="rule"></div>
       <p class="hero-sub">用意された席はありません。<br>あなたの実力で、自分の椅子を削り出してください。</p>
-      <div class="hero-scroll">
-        <div class="hero-scroll-line"></div>
-        scroll
-      </div>
+      <div class="scroll-hint"><div class="scroll-hint-line"></div>scroll</div>
     </div>
   </section>
 
-  <!-- MANIFESTO -->
-  <section class="manifesto">
-    <span class="manifesto-label">Our belief</span>
+  <div class="manifesto">
+    <span class="s-label" style="display:block;text-align:center;margin-bottom:24px;">Our belief</span>
     <p class="manifesto-text">
       私たちは今、<em>11カ国に展開するグループ</em>を次のステージへ動かす、最初の数人を探しています。<br><br>
       正解はまだない。だからこそ、あなたが正解を作る側に立てる。
     </p>
-  </section>
+  </div>
 
-  <!-- STAGE -->
   <section class="sec">
     <div class="sec-inner">
       <span class="s-label">What you'll build</span>
@@ -555,30 +480,29 @@
       <p class="s-body">肩書きより、やれることの大きさで選んでください。</p>
       <div class="stage-grid">
         <div class="stage-item">
-          <span class="stage-item-num">01 — AUTHORITY</span>
-          <p class="stage-item-title">会社のコアを、<br>創業者と対等に作る権限</p>
-          <p class="stage-item-desc">答えのない問いを、自分で設定できる人だけが立てる場所です。</p>
+          <span class="stage-num">01 — AUTHORITY</span>
+          <p class="stage-title">会社のコアを、<br>創業者と対等に作る権限</p>
+          <p class="stage-desc">答えのない問いを、自分で設定できる人だけが立てる場所です。</p>
         </div>
         <div class="stage-item">
-          <span class="stage-item-num">02 — GLOBAL</span>
-          <p class="stage-item-title">グローバルで動く、<br>ハイエンドな案件群</p>
-          <p class="stage-item-desc">宝石・不動産・M&A・エンタメ・AI。単一事業では得られないスケールの仕事が動いています。</p>
+          <span class="stage-num">02 — GLOBAL</span>
+          <p class="stage-title">グローバルで動く、<br>ハイエンドな案件群</p>
+          <p class="stage-desc">宝石・不動産・M&amp;A・エンタメ・AI。単一事業では得られないスケールの仕事が動いています。</p>
         </div>
         <div class="stage-item">
-          <span class="stage-item-num">03 — VALUE</span>
-          <p class="stage-item-title">AI時代に通用する、<br>市場価値の再定義</p>
-          <p class="stage-item-desc">前例のない仕事を、前例にしてきた人へ。変容をここで起こしてください。</p>
+          <span class="stage-num">03 — VALUE</span>
+          <p class="stage-title">AI時代に通用する、<br>市場価値の再定義</p>
+          <p class="stage-desc">前例のない仕事を、前例にしてきた人へ。変容をここで起こしてください。</p>
         </div>
         <div class="stage-item">
-          <span class="stage-item-num">04 — REWARD</span>
-          <p class="stage-item-title">成果が、そのまま<br>自分の報酬になる評価体系</p>
-          <p class="stage-item-desc">年3回の賞与、成果連動インセンティブ。動いた分だけ、数字に返ってきます。</p>
+          <span class="stage-num">04 — REWARD</span>
+          <p class="stage-title">成果が、そのまま<br>自分の報酬になる評価体系</p>
+          <p class="stage-desc">年3回の賞与、成果連動インセンティブ。動いた分だけ、数字に返ってきます。</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- WHO -->
   <section class="sec">
     <div class="sec-inner">
       <span class="s-label">Who we're looking for</span>
@@ -586,58 +510,56 @@
       <ul class="who-list">
         <li class="who-item">
           <div class="who-dash"></div>
-          <p class="who-text">
-            <strong>答えのない問いを、自分で設定できる人。</strong>
-            与えられたミッションより、自分が設定したミッションで動ける人。
-          </p>
+          <div>
+            <span class="who-strong">答えのない問いを、自分で設定できる人。</span>
+            <span class="who-desc">与えられたミッションより、自分が設定したミッションで動ける人。</span>
+          </div>
         </li>
         <li class="who-item">
           <div class="who-dash"></div>
-          <p class="who-text">
-            <strong>前例のない仕事を、前例にしてきた人。</strong>
-            「誰かが作ったレール」より「自分が引くレール」に燃える人。
-          </p>
+          <div>
+            <span class="who-strong">前例のない仕事を、前例にしてきた人。</span>
+            <span class="who-desc">「誰かが作ったレール」より「自分が引くレール」に燃える人。</span>
+          </div>
         </li>
         <li class="who-item">
           <div class="who-dash"></div>
-          <p class="who-text">
-            <strong>国境を、壁だと思っていない人。</strong>
-            海外クライアント・多言語環境をアドバンテージに変えられる人。
-          </p>
+          <div>
+            <span class="who-strong">国境を、壁だと思っていない人。</span>
+            <span class="who-desc">海外クライアント・多言語環境をアドバンテージに変えられる人。</span>
+          </div>
         </li>
         <li class="who-item">
           <div class="who-dash"></div>
-          <p class="who-text">
-            <strong>5年後の自分を、今の会社に描けていない人。</strong>
-            そのビジョンを、ここで削り出してほしい。
-          </p>
+          <div>
+            <span class="who-strong">5年後の自分を、今の会社に描けていない人。</span>
+            <span class="who-desc">そのビジョンを、ここで削り出してほしい。</span>
+          </div>
         </li>
       </ul>
     </div>
   </section>
 
-  <!-- NOT FOR -->
   <div class="notfor">
     <span class="notfor-label">This role is not for everyone</span>
     <p class="notfor-text">完成された環境、明文化されたルール、リスクのない意思決定——それを求める方には、向いていません。私たちが探しているのは、評論家ではなくプレイヤーです。</p>
   </div>
 
-  <!-- FACTS -->
   <section class="sec">
     <div class="sec-inner">
       <span class="s-label">Facts</span>
       <h2 class="s-title">多くは語りません。<br>数字だけ、置いておきます。</h2>
       <div class="facts-grid">
         <div class="fact-item">
-          <p class="fact-num">11</p>
+          <span class="fact-num">11</span>
           <p class="fact-label">グローバル拠点国数</p>
         </div>
         <div class="fact-item">
-          <p class="fact-num">年3回</p>
+          <span class="fact-num">年3回</span>
           <p class="fact-label">賞与支給<br>年間7.5ヶ月分</p>
         </div>
         <div class="fact-item">
-          <p class="fact-num">複数</p>
+          <span class="fact-num">複数</span>
           <p class="fact-label">事業領域<br>宝石・不動産・エンタメ他</p>
         </div>
       </div>
@@ -645,28 +567,23 @@
     </div>
   </section>
 
-  <!-- CTA -->
   <section class="cta">
-    <p class="cta-quote">「転職するかどうか、<br>まだ決めていない」<br>それで構いません。</p>
+    <p class="cta-title">「転職するかどうか、<br>まだ決めていない」<br>それで構いません。</p>
     <p class="cta-sub">まず話を聞くだけで十分です。<br>営業的な連絡は一切しません。</p>
     <a href="https://line.me/ti/p/tF-4T_VJTV" class="cta-btn" target="_blank" rel="noopener">話を聞いてみる</a>
     <p class="cta-fine">NEXFORTIUM HOLDINGS — Human Resources Department</p>
   </section>
 
-  <!-- FOOTER -->
   <footer class="footer">
     <p class="footer-logo">NEXFORTIUM HOLDINGS</p>
     <p class="footer-note">報酬・条件については個別相談にてご案内します</p>
   </footer>
 
-  <!-- FLOATING LINE -->
-  <a href="https://line.me/ti/p/tF-4T_VJTV" class="floating-line" target="_blank" rel="noopener" aria-label="LINEで相談する">
-    <div class="floating-line-icon">
-      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 2C6.48 2 2 6.03 2 11c0 2.7 1.3 5.1 3.3 6.8L4 22l4.4-1.4C9.5 21.2 10.7 21.5 12 21.5c5.52 0 10-4.03 10-9.4C22 6.03 17.52 2 12 2z"/>
-      </svg>
+  <a href="https://line.me/ti/p/tF-4T_VJTV" class="floating" target="_blank" rel="noopener">
+    <div class="floating-icon">
+      <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.03 2 11c0 2.7 1.3 5.1 3.3 6.8L4 22l4.4-1.4C9.5 21.2 10.7 21.5 12 21.5c5.52 0 10-4.03 10-9.4C22 6.03 17.52 2 12 2z"/></svg>
     </div>
-    <span class="floating-line-label">LINE で相談</span>
+    <span class="floating-label">LINE で相談</span>
   </a>
 
 </body>
