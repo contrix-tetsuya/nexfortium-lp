@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>一般職採用 | NEXFORTIUM HOLDINGS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Serif+JP:wght@300;400;500&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold: #B8973A;
+  --gold-light: #D4AF5A;
+  --gold-pale: #F5EDD6;
+  --navy: #1A2744;
+  --navy-mid: #2C3E6B;
+  --cream: #FDFAF4;
+  --white: #FFFFFF;
+  --text-dark: #1A1A2E;
+  --text-mid: #4A4A6A;
+  --text-light: #8A8AAA;
+  --border: #E8E0CC;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Noto Serif JP', serif;
+  background: var(--cream);
+  color: var(--text-dark);
+  overflow-x: hidden;
+}
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  background: linear-gradient(160deg, #FDFAF4 0%, #F0E8D0 40%, #E8D9B5 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 80px 24px 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(184,151,58,0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -80px;
+  left: -80px;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(26,39,68,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--navy);
+  color: var(--gold-light);
+  font-family: 'Noto Serif JP', serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  padding: 8px 20px;
+  border-radius: 100px;
+  margin-bottom: 40px;
+  animation: fadeUp 0.8s ease both;
+}
+
+.hero-badge::before {
+  content: '✦';
+  font-size: 9px;
+}
+
+.hero-logo {
+  
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  margin-bottom: 32px;
+  animation: fadeUp 0.8s ease 0.1s both;
+}
+
+.hero h1 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: clamp(2.2rem, 6vw, 3.8rem);
+  font-weight: 300;
+  line-height: 1.5;
+  color: var(--navy);
+  margin-bottom: 24px;
+  animation: fadeUp 0.8s ease 0.2s both;
+}
+
+.hero h1 em {
+  font-style: normal;
+  color: var(--gold);
+}
+
+.hero-sub {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--text-mid);
+  line-height: 1.9;
+  max-width: 480px;
+  margin: 0 auto 48px;
+  animation: fadeUp 0.8s ease 0.3s both;
+}
+
+.hero-locations {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 48px;
+  animation: fadeUp 0.8s ease 0.4s both;
+}
+
+.location-tag {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: white;
+  border: 1px solid var(--border);
+  padding: 10px 20px;
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--navy);
+  box-shadow: 0 2px 12px rgba(26,39,68,0.08);
+}
+
+.location-tag span { color: var(--gold); font-size: 14px; }
+
+.hero-cta {
+  animation: fadeUp 0.8s ease 0.5s both;
+}
+
+.btn-primary {
+  display: inline-block;
+  background: var(--navy);
+  color: var(--gold-light);
+  font-family: 'Noto Serif JP', serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  padding: 18px 48px;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 32px rgba(26,39,68,0.2);
+}
+
+.btn-primary:hover {
+  background: var(--navy-mid);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(26,39,68,0.3);
+}
+
+.scroll-hint {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-light);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  animation: fadeUp 1s ease 0.8s both;
+}
+
+.scroll-line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, var(--gold), transparent);
+  animation: scrollLine 1.5s ease-in-out infinite;
+}
+
+@keyframes scrollLine {
+  0% { transform: scaleY(0); transform-origin: top; }
+  50% { transform: scaleY(1); transform-origin: top; }
+  51% { transform: scaleY(1); transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+/* ── SECTION BASE ── */
+section { padding: 100px 24px; }
+
+.section-inner { max-width: 900px; margin: 0 auto; }
+
+.section-label {
+  
+  font-size: 12px;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.section-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--navy);
+  margin-bottom: 48px;
+}
+
+.section-title em {
+  font-style: normal;
+  color: var(--gold);
+}
+
+/* ── MESSAGE ── */
+.message-section {
+  background: white;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.message-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 64px;
+  align-items: start;
+}
+
+.message-left {
+  position: sticky;
+  top: 80px;
+}
+
+.message-number {
+  
+  font-size: 80px;
+  font-weight: 300;
+  color: var(--gold-pale);
+  line-height: 1;
+  margin-bottom: 16px;
+}
+
+.message-body p {
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 2;
+  color: var(--text-mid);
+  margin-bottom: 20px;
+}
+
+.message-body strong {
+  color: var(--navy);
+  font-weight: 500;
+}
+
+/* ── POSITIONS ── */
+.positions-section { background: var(--cream); }
+
+.positions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.position-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 40px 32px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 16px rgba(26,39,68,0.04);
+}
+
+.position-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(to right, var(--gold), var(--gold-light));
+}
+
+.position-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(26,39,68,0.1);
+}
+
+.position-icon {
+  width: 48px;
+  height: 48px;
+  background: var(--gold-pale);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  margin-bottom: 24px;
+}
+
+.position-name {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+
+.position-en {
+  
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  margin-bottom: 20px;
+  display: block;
+}
+
+.position-desc {
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--text-mid);
+  line-height: 1.8;
+  margin-bottom: 24px;
+}
+
+.position-tasks {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.position-tasks li {
+  font-size: 12px;
+  color: var(--text-mid);
+  padding-left: 16px;
+  position: relative;
+  line-height: 1.6;
+}
+
+.position-tasks li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+  font-size: 11px;
+}
+
+/* ── CONDITIONS ── */
+.conditions-section {
+  background: white;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.conditions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 48px;
+}
+
+.condition-item {
+  background: white;
+  padding: 32px 28px;
+}
+
+.condition-label {
+  
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.condition-value {
+  
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--navy);
+  line-height: 1.8;
+  display: block;
+}
+
+/* ── BENEFITS ── */
+.benefits-section { background: var(--cream); }
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.benefit-item {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px 20px;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+.benefit-item:hover {
+  border-color: var(--gold);
+  transform: translateY(-2px);
+}
+
+.benefit-icon { font-size: 28px; margin-bottom: 12px; display: block; }
+
+.benefit-title {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--navy);
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+
+.benefit-desc {
+  font-size: 11px;
+  color: var(--text-light);
+  line-height: 1.5;
+}
+
+/* ── NUMBERS ── */
+.numbers-section {
+  background: var(--navy);
+  padding: 80px 24px;
+}
+
+.numbers-inner { max-width: 900px; margin: 0 auto; }
+
+.numbers-label {
+  
+  font-size: 12px;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  margin-bottom: 16px;
+  display: block;
+  text-align: center;
+}
+
+.numbers-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 300;
+  color: white;
+  text-align: center;
+  margin-bottom: 56px;
+  line-height: 1.6;
+}
+
+.numbers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.number-item {
+  padding: 40px 24px;
+  text-align: center;
+  background: rgba(255,255,255,0.03);
+}
+
+.number-value {
+  
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 300;
+  color: var(--gold-light);
+  line-height: 1;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 2px;
+}
+
+.number-unit {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 13px;
+  color: var(--gold-light);
+  line-height: 1;
+}
+
+.number-label {
+  font-size: 12px;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 0.05em;
+}
+
+/* ── CTA ── */
+.cta-section {
+  background: linear-gradient(160deg, #FDFAF4 0%, #F0E8D0 100%);
+  text-align: center;
+  padding: 100px 24px;
+}
+
+.cta-inner { max-width: 600px; margin: 0 auto; }
+
+.cta-tag {
+  display: inline-block;
+  
+  font-size: 12px;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  margin-bottom: 32px;
+}
+
+.cta-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  font-weight: 300;
+  color: var(--navy);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.cta-sub {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--text-mid);
+  line-height: 1.9;
+  margin-bottom: 48px;
+}
+
+.cta-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.btn-secondary {
+  display: inline-block;
+  color: var(--text-mid);
+  font-size: 12px;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 2px;
+  transition: all 0.2s ease;
+}
+
+.btn-secondary:hover { color: var(--navy); border-color: var(--navy); }
+
+.cta-note {
+  margin-top: 32px;
+  font-size: 11px;
+  color: var(--text-light);
+  letter-spacing: 0.05em;
+}
+
+/* ── CAREER PATH ── */
+.career-section {
+  background: white;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.career-intro {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--text-mid);
+  line-height: 1.9;
+  margin-bottom: 56px;
+}
+
+.career-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.career-track {
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 32px;
+}
+
+.career-track-label {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--navy);
+  margin-bottom: 24px;
+}
+
+.career-steps {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.career-step {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px 20px;
+  text-align: center;
+  min-width: 120px;
+  transition: all 0.2s ease;
+}
+
+.career-step:hover {
+  border-color: var(--gold);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(184,151,58,0.1);
+}
+
+.career-step.highlight {
+  background: var(--navy);
+  border-color: var(--navy);
+}
+
+.career-step.highlight .step-role { color: var(--gold-light); }
+.career-step.highlight .step-salary { color: rgba(255,255,255,0.6); }
+
+.step-role {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--navy);
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+
+.step-salary {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--gold);
+  line-height: 1.4;
+  display: block;
+}
+
+.step-salary .num {
+  
+  font-size: 18px;
+  font-weight: 400;
+  vertical-align: baseline;
+}
+
+.career-arrow {
+  font-size: 18px;
+  color: var(--gold);
+  flex-shrink: 0;
+}
+
+@media (max-width: 640px) {
+  .career-steps { gap: 8px; }
+  .career-step { min-width: 90px; padding: 12px 14px; }
+  .career-arrow { font-size: 14px; }
+}
+
+/* ── FOOTER ── */
+footer {
+  background: var(--navy);
+  padding: 40px 24px;
+  text-align: center;
+}
+
+.footer-logo {
+  
+  font-size: 14px;
+  letter-spacing: 0.3em;
+  color: var(--gold-light);
+  margin-bottom: 8px;
+}
+
+.footer-dept {
+  font-size: 11px;
+  color: rgba(255,255,255,0.3);
+  letter-spacing: 0.1em;
+}
+
+/* ── FLOATING CTA ── */
+.floating-cta {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 100;
+}
+
+.floating-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--navy);
+  color: var(--gold-light);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 14px 24px;
+  border-radius: 100px;
+  text-decoration: none;
+  box-shadow: 0 8px 32px rgba(26,39,68,0.3);
+  transition: all 0.3s ease;
+}
+
+.floating-btn:hover {
+  background: var(--navy-mid);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(26,39,68,0.4);
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: all 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 640px) {
+  .message-grid { grid-template-columns: 1fr; gap: 32px; }
+  .message-left { position: static; }
+  .message-number { font-size: 56px; }
+  section { padding: 64px 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">オープニングスタッフ募集</div>
+  <div class="hero-logo">NEXFORTIUM HOLDINGS</div>
+  <h1>新しいステージで、<br><em>あなたの力を</em>発揮する。</h1>
+  <p class="hero-sub">
+    グローバルに展開するNEXFORTIUM HOLDINGSが、<br>
+    福岡本社・大阪支店の立ち上げメンバーを募集します。
+  </p>
+  <div class="hero-locations">
+    <div class="location-tag"><span>📍</span> 福岡本社</div>
+    <div class="location-tag"><span>📍</span> 大阪支店</div>
+  </div>
+  <div class="hero-cta">
+    <a href="https://line.me/ti/p/tF-4T_VJTV" class="btn-primary">まずは話だけ聞いてみる</a>
+  </div>
+  <div class="scroll-hint">
+    <div class="scroll-line"></div>
+    <span>SCROLL</span>
+  </div>
+</section>
+
+<!-- MESSAGE -->
+<section class="message-section">
+  <div class="section-inner">
+    <div class="message-grid">
+      <div class="message-left reveal">
+        <div class="message-number">01</div>
+        <span class="section-label">Our Message</span>
+        <div class="section-title" style="font-size:1.4rem; margin-bottom:0;">
+          会社と一緒に<br><em>成長できる</em>場所
+        </div>
+      </div>
+      <div class="message-body reveal">
+        <p>
+          NEXFORTIUMは今、グローバル展開を加速しています。<br>
+          その成長を支える<strong>管理部門のコアメンバー</strong>として、福岡・大阪で一緒に働いてくれる方を探しています。
+        </p>
+        <p>
+          「大企業でのキャリアに閉塞感を感じている」<br>
+          「もっと自分の仕事が会社に直結する環境で働きたい」<br>
+          「グローバルな環境に関わってみたい」
+        </p>
+        <p>
+          そんな方にとって、ここは<strong>理想の場所</strong>になると思っています。
+          オープニングスタッフとして入社することで、制度づくりや体制構築にも関わることができます。
+        </p>
+        <p>
+          まずは気軽に話を聞きに来てください。<br>
+          <strong>営業的な連絡は一切しません。</strong>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- POSITIONS -->
+<section class="positions-section">
+  <div class="section-inner">
+    <span class="section-label reveal">Positions</span>
+    <h2 class="section-title reveal">募集職種</h2>
+    <div class="positions-grid">
+
+      <div class="position-card reveal">
+        <div class="position-icon">👥</div>
+        <div class="position-name">人事担当者</div>
+        <span class="position-en">Human Resources</span>
+        <p class="position-desc">会社の成長を「人」から支える、管理部門の中核ポジションです。</p>
+        <ul class="position-tasks">
+          <li>採用業務全般（求人・面接・入社手続き）</li>
+          <li>労務管理・勤怠管理</li>
+          <li>社内制度の整備・運用</li>
+          <li>教育研修の企画・実施</li>
+          <li>人事評価制度の運用サポート</li>
+        </ul>
+      </div>
+
+      <div class="position-card reveal">
+        <div class="position-icon">📊</div>
+        <div class="position-name">経理担当者</div>
+        <span class="position-en">Accounting</span>
+        <p class="position-desc">グローバル企業の財務基盤を支える、正確さと誠実さが活きるポジションです。</p>
+        <ul class="position-tasks">
+          <li>日常経理処理（仕訳・伝票入力）</li>
+          <li>月次・年次決算サポート</li>
+          <li>請求書・支払管理</li>
+          <li>経費精算処理</li>
+          <li>税務・会計事務所との連携</li>
+        </ul>
+      </div>
+
+      <div class="position-card reveal">
+        <div class="position-icon">📋</div>
+        <div class="position-name">営業事務</div>
+        <span class="position-en">Sales Administration</span>
+        <p class="position-desc">営業チームの動きを的確にサポートし、成果に直結する縁の下の力持ち。</p>
+        <ul class="position-tasks">
+          <li>受発注・契約書類の管理</li>
+          <li>営業資料・提案書の作成補助</li>
+          <li>顧客対応・問い合わせ対応</li>
+          <li>スケジュール・会議調整</li>
+          <li>各種データ集計・レポート作成</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CAREER PATH -->
+<section class="career-section">
+  <div class="section-inner">
+    <span class="section-label reveal">Career Path</span>
+    <h2 class="section-title reveal">入社後の<em>キャリアパス</em></h2>
+    <p class="career-intro reveal">オープニングスタッフとして入社後、成果と意欲に応じてステップアップできます。<br>昇給年1〜2回により、上位ポジションへの挑戦も可能です。</p>
+
+    <div class="career-grid">
+
+      <div class="career-track reveal">
+        <div class="career-track-label">👥 人事</div>
+        <div class="career-steps">
+          <div class="career-step">
+            <div class="step-role">人事担当</div>
+            <div class="step-salary"><span class="num">420</span>万〜</div>
+          </div>
+          <div class="career-arrow">→</div>
+          <div class="career-step">
+            <div class="step-role">主任・リーダー</div>
+            <div class="step-salary"><span class="num">500</span>万〜</div>
+          </div>
+          <div class="career-arrow">→</div>
+          <div class="career-step">
+            <div class="step-role">マネージャー</div>
+            <div class="step-salary"><span class="num">650</span>万〜</div>
+          </div>
+          <div class="career-arrow">→</div>
+          <div class="career-step highlight">
+            <div class="step-role">統括マネージャー</div>
+            <div class="step-salary"><span class="num">800</span>万〜</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="career-track reveal">
+        <div class="career-track-label">📊 経理</div>
+        <div class="career-steps">
+          <div class="career-step">
+            <div class="step-role">経理担当</div>
+            <div class="step-salary"><span class="num">420</span>万〜</div>
+          </div>
+          <div class="career-arrow">→</div>
+          <div class="career-step">
+            <div class="step-role">主任・リーダー</div>
+            <div class="step-salary"><span class="num">500</span>万〜</div>
+          </div>
+          <div class="career-arrow">→</div>
+          <div class="career-step">
+            <div class="step-role">マネージャー</div>
+            <div class="step-salary"><span class="num">650</span>万〜</div>
+          </div>
+          <div class="career-arrow">→</div>
+          <div class="career-step highlight">
+            <div class="step-role">財務経理部長</div>
+            <div class="step-salary"><span class="num">800</span>万〜</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="career-track reveal">
+        <div class="career-track-label">📋 営業事務</div>
+        <div class="career-steps">
+          <div class="career-step">
+            <div class="step-role">営業事務</div>
+            <div class="step-salary"><span class="num">420</span>万〜</div>
+          </div>
+          <div class="career-arrow">→</div>
+          <div class="career-step">
+            <div class="step-role">主任・リーダー</div>
+            <div class="step-salary"><span class="num">500</span>万〜</div>
+          </div>
+          <div class="career-arrow">→</div>
+          <div class="career-step">
+            <div class="step-role">マネージャー</div>
+            <div class="step-salary"><span class="num">650</span>万〜</div>
+          </div>
+          <div class="career-arrow">→</div>
+          <div class="career-step highlight">
+            <div class="step-role">営業部門責任者</div>
+            <div class="step-salary"><span class="num">800</span>万〜</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONDITIONS -->
+<section class="conditions-section">
+  <div class="section-inner">
+    <span class="section-label reveal">Conditions</span>
+    <h2 class="section-title reveal">勤務条件</h2>
+    <div class="conditions-grid reveal">
+      <div class="condition-item">
+        <span class="condition-label">Salary</span>
+        <div class="condition-value">年収 420万円〜<br><small style="font-size:12px;color:var(--text-light);">昇給年1〜2回・経験考慮</small></div>
+      </div>
+      <div class="condition-item">
+        <span class="condition-label">Hours</span>
+        <div class="condition-value">10:00〜16:00<br><small style="font-size:12px;color:var(--text-light);">（経理は月末月初変動有）</small></div>
+      </div>
+      <div class="condition-item">
+        <span class="condition-label">Holiday</span>
+        <div class="condition-value">完全週休2日制<br><small style="font-size:12px;color:var(--text-light);">土日・祝日・長期休暇</small></div>
+      </div>
+      <div class="condition-item">
+        <span class="condition-label">Bonus</span>
+        <div class="condition-value">年3回・7.5ヶ月分<br><small style="font-size:12px;color:var(--text-light);">4月・7月・12月</small></div>
+      </div>
+      <div class="condition-item">
+        <span class="condition-label">Location</span>
+        <div class="condition-value">福岡本社<br>大阪支店</div>
+      </div>
+      <div class="condition-item">
+        <span class="condition-label">Paid Leave</span>
+        <div class="condition-value">入社6ヶ月後 11日〜<br><small style="font-size:12px;color:var(--text-light);">勤続年数により増加</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section class="benefits-section">
+  <div class="section-inner">
+    <span class="section-label reveal">Benefits</span>
+    <h2 class="section-title reveal">福利厚生</h2>
+    <div class="benefits-grid">
+      <div class="benefit-item reveal">
+        <span class="benefit-icon">🌍</span>
+        <div class="benefit-title">海外研修制度</div>
+        <div class="benefit-desc">海外拠点での研修・視察</div>
+      </div>
+      <div class="benefit-item reveal">
+        <span class="benefit-icon">📚</span>
+        <div class="benefit-title">資格取得支援</div>
+        <div class="benefit-desc">取得費用を補助</div>
+      </div>
+      <div class="benefit-item reveal">
+        <span class="benefit-icon">🏠</span>
+        <div class="benefit-title">住宅補助</div>
+        <div class="benefit-desc">条件付きでサポート</div>
+      </div>
+      <div class="benefit-item reveal">
+        <span class="benefit-icon">💻</span>
+        <div class="benefit-title">リモートワーク可</div>
+        <div class="benefit-desc">業務に応じて在宅勤務</div>
+      </div>
+      <div class="benefit-item reveal">
+        <span class="benefit-icon">🎂</span>
+        <div class="benefit-title">家族誕生日休暇</div>
+        <div class="benefit-desc">特別休暇制度あり</div>
+      </div>
+      <div class="benefit-item reveal">
+        <span class="benefit-icon">👶</span>
+        <div class="benefit-title">育児・介護休暇</div>
+        <div class="benefit-desc">柔軟に対応します</div>
+      </div>
+      <div class="benefit-item reveal">
+        <span class="benefit-icon">🎡</span>
+        <div class="benefit-title">リロクラブ提携</div>
+        <div class="benefit-desc">12万以上の優待サービス</div>
+      </div>
+      <div class="benefit-item reveal">
+        <span class="benefit-icon">🏥</span>
+        <div class="benefit-title">社会保険完備</div>
+        <div class="benefit-desc">健康・厚生・雇用保険</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NUMBERS -->
+<section class="numbers-section">
+  <div class="numbers-inner">
+    <span class="numbers-label">Facts</span>
+    <h2 class="numbers-title reveal" style="color:white;">数字で見る、NEXFORTIUM</h2>
+    <div class="numbers-grid reveal">
+      <div class="number-item">
+        <div class="number-value">389<span class="number-unit">名+</span></div>
+        <div class="number-label">グループ総従業員</div>
+      </div>
+      <div class="number-item">
+        <div class="number-value">11<span class="number-unit">カ国</span></div>
+        <div class="number-label">グローバル拠点</div>
+      </div>
+      <div class="number-item">
+        <div class="number-value">7<span class="number-unit">領域</span></div>
+        <div class="number-label">多角的な事業展開</div>
+      </div>
+      <div class="number-item">
+        <div class="number-value">+20<span class="number-unit">%</span></div>
+        <div class="number-label">売上成長率（CAGR）</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <span class="cta-tag reveal">Contact</span>
+    <h2 class="cta-title reveal">
+      まずは、話だけでも<br>構いません。
+    </h2>
+    <p class="cta-sub reveal">
+      「転職するかどうか、まだ決めていない」<br>
+      「どんな会社か聞いてみたい」<br>
+      そんな方も、お気軽にどうぞ。
+    </p>
+    <div class="cta-buttons reveal">
+      <a href="https://line.me/ti/p/tF-4T_VJTV" class="btn-primary">LINEで無料相談する</a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLScymo1UhL03RQUgHfWqSzCQ51PhsQBI2rl909LzVNuYcu5gNg/viewform?usp=publish-editor" class="btn-secondary">LINEが不安な方はフォームへ</a>
+    </div>
+    <p class="cta-note reveal">営業的な連絡は一切しません</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">NEXFORTIUM HOLDINGS</div>
+  <div class="footer-dept">Human Resources Department</div>
+</footer>
+
+<!-- FLOATING CTA -->
+<div class="floating-cta">
+  <a href="https://line.me/ti/p/tF-4T_VJTV" class="floating-btn">
+    💬 LINE相談
+  </a>
+</div>
+
+<script>
+// Scroll reveal
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 80);
+    }
+  });
+}, { threshold: 0.1 });
+reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
