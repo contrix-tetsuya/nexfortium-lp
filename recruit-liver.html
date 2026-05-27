@@ -51,7 +51,6 @@
         radial-gradient(ellipse 80% 60% at 80% 80%, #C8A84B08 0%, transparent 50%);
     }
 
-    /* ヒーロー画像エリア — 実際の画像に差し替えてください */
     .hero-image {
       position: absolute;
       top: 0; left: 0; right: 0;
@@ -63,16 +62,6 @@
       object-fit: cover;
       object-position: center top;
       opacity: 0.6;
-    }
-    .hero-image-placeholder {
-      width: 100%; height: 100%;
-      background: linear-gradient(160deg, #1A0D35 0%, #0D0820 60%);
-      display: flex; align-items: center; justify-content: center;
-      flex-direction: column; gap: 8px;
-    }
-    .hero-image-placeholder span {
-      font-size: 17px; color: #7B5EA744;
-      letter-spacing: 0.14em; text-transform: uppercase;
     }
 
     .hero-gradient {
@@ -102,7 +91,15 @@
       color: var(--white);
       line-height: 1.6;
       letter-spacing: 0.06em;
+      margin-bottom: 16px;
+    }
+
+    .hero-tagline {
+      font-size: 15px;
+      color: var(--gold-light);
+      letter-spacing: 0.08em;
       margin-bottom: 20px;
+      font-weight: 500;
     }
 
     .hero-rule {
@@ -437,7 +434,6 @@
   <section class="hero">
     <div class="hero-bg"></div>
 
-    <!-- ヒーロー画像: imgタグのsrcを実際の画像パスに変更してください -->
     <div class="hero-image">
       <img src="ChatGPT%20Image%202026%E5%B9%B45%E6%9C%884%E6%97%A5%2012_07_20.png" alt="ライバーイメージ">
     </div>
@@ -447,6 +443,7 @@
     <div class="hero-content">
       <p class="hero-eyebrow">NEXFORTIUM HOLDINGS</p>
       <h1 class="hero-title">あなたの言葉が、<br>誰かの一日を変える。</h1>
+      <p class="hero-tagline">共に成長できる人と、出会いたい。</p>
       <div class="hero-rule"></div>
       <p class="hero-sub">輝ける瞬間は、必ずやってくる。<br>あなたの舞台を、一緒に作りませんか。</p>
       <a href="https://line.me/ti/p/tF-4T_VJTV" class="hero-cta" target="_blank" rel="noopener">LINEで無料相談する</a>
@@ -526,8 +523,8 @@
       <div class="safety-item">
         <span class="safety-num">04</span>
         <div>
-          <p class="safety-title">未経験OK・顔出し・配信時間は相談可</p>
-          <p class="safety-desc">はじめての方も大歓迎です。顔出しや配信時間など、あなたのペースに合わせて柔軟に対応します。</p>
+          <p class="safety-title">未経験OK・配信スタイルは相談可</p>
+          <p class="safety-desc">はじめての方も大歓迎です。配信スタイルや時間など、あなたのペースに合わせて柔軟に対応します。</p>
         </div>
       </div>
     </div>
@@ -537,14 +534,13 @@
   <section class="cta-bottom">
     <div class="cta-badge">✦ 現在、初期メンバーを募集しています ✦</div>
     <p class="cta-title">応募ではなく、<br>まずは相談からで大丈夫です。</p>
-    <p class="cta-sub">まだ決めていなくて大丈夫です。<br>「話だけ聞きたい」という方も、大歓迎です。</p>
+    <p class="cta-sub">「話だけ聞きたい」という方も、大歓迎です。</p>
     <div style="margin-bottom:28px; padding:20px 24px; border:0.5px solid #C8A84B33; border-radius:8px; background:#C8A84B08;">
       <p style="font-size:13px; color:#C8A84B; font-weight:700; letter-spacing:0.06em; margin-bottom:6px;">活動ペース・報酬条件について</p>
       <p style="font-size:13px; color:#8090A8; line-height:1.8;">面談時にわかりやすくご説明します。<br>まずはお気軽にご連絡ください。</p>
     </div>
     <a href="https://line.me/ti/p/tF-4T_VJTV" class="btn-line" target="_blank" rel="noopener">LINEで無料相談する</a>
     <p class="form-label">LINEが不安な方はこちら</p>
-    <!-- フォームURLを設定してください -->
     <a href="https://docs.google.com/forms/d/e/1FAIpQLScymo1UhL03RQUgHfWqSzCQ51PhsQBI2rl909LzVNuYcu5gNg/viewform?usp=publish-editor" class="btn-form" target="_blank" rel="noopener">お問い合わせフォームへ</a>
     <p class="cta-note">営業的な連絡は一切しません</p>
   </section>
