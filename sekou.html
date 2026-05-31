@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>現場管理職・現場責任者 募集 | ネクスフォルティアム・ホールディングス株式会社</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --blue: #185fa5;
+      --blue-mid: #2a5caa;
+      --blue-light: #e6f1fb;
+      --blue-border: #b5d4f4;
+      --text-primary: #1a1a1a;
+      --text-secondary: #555;
+      --text-muted: #888;
+      --bg: #f5f6f8;
+      --bg-white: #ffffff;
+      --border: #e0e2e8;
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 14px;
+    }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      background: var(--bg);
+      color: var(--text-primary);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 2.5rem 1.25rem 4rem;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      background: var(--bg-white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem 2rem 2rem;
+      margin-bottom: 1.75rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 4px; height: 100%;
+      background: var(--blue-mid);
+    }
+    .company-name {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .1em;
+      color: var(--blue-mid);
+      margin-bottom: .4rem;
+    }
+    .hero-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--blue);
+      background: var(--blue-light);
+      border: 1px solid var(--blue-border);
+      padding: 4px 11px;
+      border-radius: 4px;
+      margin-bottom: 1.1rem;
+    }
+    .hero h1 {
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 1.4;
+      color: var(--text-primary);
+      margin-bottom: .75rem;
+    }
+    .hero h1 span { color: var(--blue-mid); }
+    .hero-sub {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.75;
+      max-width: 540px;
+    }
+    .hero-catch {
+      margin-top: 1.5rem;
+      padding: 1rem 1.25rem;
+      border-left: 3px solid var(--blue-mid);
+      background: var(--bg);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    }
+    .hero-catch p {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text-primary);
+      line-height: 1.85;
+    }
+
+    /* ── Section ── */
+    .section { margin-bottom: 1.75rem; }
+    .sec-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .1em;
+      color: var(--blue-mid);
+      margin-bottom: .35rem;
+      text-transform: uppercase;
+    }
+    .sec-title {
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 1.1rem;
+    }
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 1.75rem 0;
+    }
+
+    /* ── Work cards ── */
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+      gap: 12px;
+    }
+    .wc {
+      background: var(--bg-white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.1rem 1rem;
+    }
+    .wc-icon {
+      font-size: 22px;
+      margin-bottom: .5rem;
+    }
+    .wc h3 {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: .5rem;
+    }
+    .wc ul { list-style: none; }
+    .wc ul li {
+      font-size: 12px;
+      color: var(--text-secondary);
+      padding: 2px 0 2px 12px;
+      position: relative;
+      line-height: 1.55;
+    }
+    .wc ul li::before {
+      content: '–';
+      position: absolute;
+      left: 0;
+      color: var(--blue-mid);
+    }
+
+    /* ── Tags ── */
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag {
+      font-size: 12px;
+      background: var(--blue-light);
+      color: var(--blue);
+      border: 1px solid var(--blue-border);
+      padding: 5px 13px;
+      border-radius: 20px;
+    }
+
+    /* ── Wanted ── */
+    .want-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 10px;
+    }
+    .wi {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      background: var(--bg-white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: .9rem 1rem;
+    }
+    .wi-icon {
+      font-size: 18px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .wi p {
+      font-size: 13px;
+      color: var(--text-primary);
+      line-height: 1.6;
+    }
+
+    /* ── CTA ── */
+    .cta {
+      background: var(--blue);
+      border-radius: var(--radius-lg);
+      padding: 2.25rem 1.5rem;
+      text-align: center;
+    }
+    .cta h2 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: .5rem;
+    }
+    .cta p {
+      font-size: 13px;
+      color: rgba(255,255,255,.78);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+    .cta-btn {
+      display: inline-block;
+      background: #fff;
+      color: var(--blue);
+      font-size: 14px;
+      font-weight: 700;
+      font-family: 'Noto Sans JP', sans-serif;
+      padding: 13px 36px;
+      border-radius: var(--radius-md);
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: opacity .15s;
+    }
+    .cta-btn:hover { opacity: .88; }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 22px; }
+      .work-grid { grid-template-columns: 1fr 1fr; }
+      .want-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 400px) {
+      .work-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Hero -->
+    <div class="hero">
+      <div class="company-name">NEXFORTIUM HOLDINGS ／ ネクスフォルティアム・ホールディングス株式会社</div>
+      <div class="hero-badge">採用情報 2026 — 現場管理職・現場責任者</div>
+      <h1>現場を<span>統括</span>し、<br>プロジェクトを完成へ導く。</h1>
+      <p class="hero-sub">建設・リニューアル工事における現場管理職・現場責任者を募集します。工程・品質・安全・原価——すべてを管理しチームを率いる、次世代の施工管理者へ。</p>
+      <div class="hero-catch">
+        <p>図面を見るだけでは終わらない。<br>現場を動かす側へ ——<br>経験を、次のステージへ。</p>
+      </div>
+    </div>
+
+    <!-- 仕事内容 -->
+    <div class="section">
+      <div class="sec-label">Work</div>
+      <div class="sec-title">仕事内容</div>
+      <div class="work-grid">
+        <div class="wc">
+          <div class="wc-icon">📋</div>
+          <h3>現場管理・施工管理</h3>
+          <ul>
+            <li>工程管理</li>
+            <li>品質・施工確認</li>
+            <li>安全管理・KY活動</li>
+            <li>原価・予算管理</li>
+            <li>資材・発注管理</li>
+          </ul>
+        </div>
+        <div class="wc">
+          <div class="wc-icon">👷</div>
+          <h3>協力会社・職人管理</h3>
+          <ul>
+            <li>協力業者との打合せ</li>
+            <li>職人への作業指示</li>
+            <li>工程調整</li>
+            <li>現場巡回・施工確認</li>
+          </ul>
+        </div>
+        <div class="wc">
+          <div class="wc-icon">🏢</div>
+          <h3>顧客・元請対応</h3>
+          <ul>
+            <li>定例会議参加</li>
+            <li>工事進捗報告</li>
+            <li>見積・変更対応</li>
+            <li>引渡し対応</li>
+          </ul>
+        </div>
+        <div class="wc">
+          <div class="wc-icon">📁</div>
+          <h3>書類・図面管理</h3>
+          <ul>
+            <li>施工計画書作成</li>
+            <li>写真管理</li>
+            <li>工程表作成</li>
+            <li>安全書類作成</li>
+            <li>図面確認・修正対応</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- 対象工事 -->
+    <div class="section">
+      <div class="sec-label">Target Works</div>
+      <div class="sec-title">対象工事</div>
+      <div class="tags">
+        <span class="tag">オフィスリニューアル工事</span>
+        <span class="tag">ホテル改修工事</span>
+        <span class="tag">商業施設改修工事</span>
+        <span class="tag">マンション改修・大規模修繕</span>
+        <span class="tag">原状回復工事</span>
+        <span class="tag">公共工事</span>
+        <span class="tag">設備・電気・管工事</span>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- 求める人材 -->
+    <div class="section">
+      <div class="sec-label">Wanted</div>
+      <div class="sec-title">求める人材</div>
+      <div class="want-grid">
+        <div class="wi">
+          <div class="wi-icon">🏅</div>
+          <p>施工管理経験者優遇<br>建築施工管理技士資格者歓迎</p>
+        </div>
+        <div class="wi">
+          <div class="wi-icon">🛡️</div>
+          <p>現場をまとめる力のある方</p>
+        </div>
+        <div class="wi">
+          <div class="wi-icon">⚙️</div>
+          <p>裁量を持って働きたい方</p>
+        </div>
+        <div class="wi">
+          <div class="wi-icon">🚀</div>
+          <p>将来、幹部・事業責任者を目指したい方</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta">
+      <h2>建設 × リニューアル × 次世代施工管理</h2>
+      <p>現場責任者・管理職候補を募集しています。<br>あなたの経験を、次のステージへ。</p>
+      <!-- GoogleフォームのURLをhrefに設定してください -->
+      <a href="#" class="cta-btn">応募する</a>
+    </div>
+
+  </div>
+</body>
+</html>
