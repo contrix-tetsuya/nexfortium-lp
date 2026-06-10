@@ -29,226 +29,60 @@
     --text-sub: #9A8A6A;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    background: var(--black);
-    color: var(--white);
-    font-family: 'Noto Serif JP', serif;
-    overflow-x: hidden;
-  }
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    padding: 16px 40px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: rgba(10,10,10,0.92);
-    border-bottom: 1px solid rgba(201,168,76,0.2);
-    backdrop-filter: blur(10px);
-  }
-  .nav-logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 20px;
-    font-weight: 700;
-    color: var(--gold);
-    letter-spacing: 3px;
-  }
-  .nav-sub {
-    font-size: 10px;
-    color: var(--text-sub);
-    letter-spacing: 2px;
-    margin-top: 2px;
-  }
+  body { background: var(--black); color: var(--white); font-family: 'Noto Serif JP', serif; overflow-x: hidden; }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 16px 40px; display: flex; align-items: center; justify-content: space-between; background: rgba(10,10,10,0.92); border-bottom: 1px solid rgba(201,168,76,0.2); backdrop-filter: blur(10px); }
+  .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 700; color: var(--gold); letter-spacing: 3px; }
+  .nav-sub { font-size: 10px; color: var(--text-sub); letter-spacing: 2px; margin-top: 2px; }
   .hero { width: 100%; padding-top: 72px; }
   .hero img { width: 100%; display: block; }
-  .section-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 13px;
-    letter-spacing: 6px;
-    color: var(--gold);
-    text-transform: uppercase;
-    margin-bottom: 16px;
-    text-align: center;
-  }
-  .section-divider {
-    width: 60px;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--gold), transparent);
-    margin: 16px auto 48px;
-  }
-  .video-section { padding: 80px 40px; background: var(--black-mid); }
-  .video-wrapper {
-    max-width: 900px;
-    margin: 0 auto;
-    position: relative;
-    padding-bottom: 50.25%;
-    height: 0;
-    border: 1px solid rgba(201,168,76,0.3);
-    box-shadow: 0 0 60px rgba(201,168,76,0.1);
-  }
-  .video-wrapper iframe {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-  }
-  .business-section { padding: 100px 0; background: var(--black); }
+  .section-title { font-family: 'Cormorant Garamond', serif; font-size: 13px; letter-spacing: 6px; color: var(--gold); text-transform: uppercase; margin-bottom: 16px; text-align: center; }
+  .section-divider { width: 60px; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), var(--gold-light), var(--gold), transparent); background-size: 200% 200%; animation: goldFlow 3s ease infinite; margin: 16px auto 48px; }
+  @keyframes goldFlow { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+
+  /* 事業案内スライドショー */
+  .business-section { padding: 100px 0 80px; background: var(--black); }
   .business-title-wrap { text-align: center; padding: 0 40px 48px; }
-  .business-item {
-    max-width: 1200px;
-    margin: 0 auto 60px;
-    padding: 0 40px;
-  }
-  .business-item img {
-    width: 100%;
-    display: block;
-    border: 1px solid rgba(201,168,76,0.2);
-    box-shadow: 0 4px 40px rgba(0,0,0,0.6);
-  }
-  .business-item-footer {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    padding: 16px 0;
-    border-bottom: 1px solid rgba(201,168,76,0.15);
-  }
-  .btn-detail {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 13px;
-    letter-spacing: 3px;
-    color: var(--gold);
-    text-decoration: none;
-    text-transform: uppercase;
-    padding: 10px 24px;
-    border: 1px solid rgba(201,168,76,0.4);
-    transition: all 0.3s ease;
-  }
-  .btn-detail:hover {
-    background: rgba(201,168,76,0.1);
-    border-color: var(--gold);
-  }
-  .btn-detail::after { content: ' →'; }
+  .biz-slider { position: relative; max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+  .biz-stage { position: relative; width: 100%; aspect-ratio: 16/7; overflow: hidden; border: 1px solid rgba(201,168,76,0.25); box-shadow: 0 4px 60px rgba(0,0,0,0.7); cursor: pointer; }
+  .biz-slide { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; opacity: 0; transition: opacity 1.4s ease; }
+  .biz-slide.active { opacity: 1; }
+  .biz-slide img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transform: scale(1.06); transition: transform 8s ease; }
+  .biz-slide.active img { transform: scale(1); }
+  .biz-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.85)); }
+  .biz-content { position: relative; z-index: 2; text-align: center; padding: 2rem; opacity: 0; transform: translateY(18px); transition: opacity 1s ease 0.5s, transform 1s ease 0.5s; margin-bottom: 52px; }
+  .biz-slide.active .biz-content { opacity: 1; transform: translateY(0); }
+  .biz-eyebrow { font-family: 'Cormorant Garamond', serif; font-size: 11px; letter-spacing: 0.22em; color: rgba(255,255,255,0.6); text-transform: uppercase; margin-bottom: 1.2rem; }
+  .biz-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(22px, 3vw, 38px); font-weight: 300; color: var(--white); letter-spacing: 0.04em; line-height: 1.1; margin-bottom: 1rem; }
+  .biz-copy { font-family: 'Noto Serif JP', serif; font-size: 14px; color: var(--gold); letter-spacing: 0.06em; }
+  .biz-line { width: 32px; height: 1px; background: rgba(201,168,76,0.6); margin: 0 auto 1.4rem; }
+  .biz-tabs { position: absolute; bottom: 0; left: 0; right: 0; z-index: 10; background: rgba(0,0,0,0.75); border-top: 1px solid rgba(201,168,76,0.3); display: flex; flex-wrap: wrap; justify-content: center; }
+  .biz-tab { font-family: 'Cormorant Garamond', serif; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; padding: 13px 14px; border: none; border-top: 2px solid transparent; background: none; cursor: pointer; white-space: nowrap; color: #ffffff !important; }
+  .biz-tab.active { color: var(--gold) !important; border-top: 2px solid var(--gold); }
+
+  /* 組織図・CTA・フッター */
   .org-section { padding: 100px 40px; background: var(--black-mid); }
-  .org-section img {
-    width: 100%;
-    display: block;
-    max-width: 1200px;
-    margin: 0 auto;
-    border: 1px solid rgba(201,168,76,0.2);
-    box-shadow: 0 4px 40px rgba(0,0,0,0.6);
-  }
-  .cta-section {
-    padding: 120px 40px;
-    text-align: center;
-    background: var(--black);
-    position: relative;
-    overflow: hidden;
-  }
-  .cta-section::before {
-    content: '';
-    position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    width: 600px; height: 600px;
-    background: radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 70%);
-    pointer-events: none;
-  }
-  .cta-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 42px;
-    font-weight: 600;
-    color: var(--gold-light);
-    letter-spacing: 4px;
-    margin-bottom: 16px;
-  }
-  .cta-sub {
-    font-size: 14px;
-    color: var(--text-sub);
-    letter-spacing: 2px;
-    margin-bottom: 48px;
-    line-height: 2;
-  }
-  .btn-cta {
-    display: inline-block;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 15px;
-    letter-spacing: 4px;
-    color: var(--black);
-    background: linear-gradient(135deg, var(--gold-light), var(--gold));
-    text-decoration: none;
-    padding: 18px 56px;
-    text-transform: uppercase;
-    transition: all 0.3s ease;
-  }
-  .btn-cta:hover {
-    box-shadow: 0 0 40px rgba(201,168,76,0.4);
-    transform: translateY(-2px);
-  }
-  #contact {
-    scroll-margin-top: 80px;
-  }
-  footer {
-    padding: 40px;
-    text-align: center;
-    border-top: 1px solid rgba(201,168,76,0.15);
-    background: var(--black-mid);
-  }
-  .footer-logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 18px;
-    color: var(--gold);
-    letter-spacing: 4px;
-    margin-bottom: 8px;
-  }
+  .org-section img { width: 100%; display: block; max-width: 1200px; margin: 0 auto; border: 1px solid rgba(201,168,76,0.2); box-shadow: 0 4px 40px rgba(0,0,0,0.6); }
+  .cta-section { padding: 120px 40px; text-align: center; background: var(--black); position: relative; overflow: hidden; }
+  .cta-section::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 600px; height: 600px; background: radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 70%); pointer-events: none; }
+  .cta-title { font-family: 'Cormorant Garamond', serif; font-size: 42px; font-weight: 600; color: var(--gold-light); letter-spacing: 4px; margin-bottom: 16px; }
+  .cta-sub { font-size: 14px; color: var(--text-sub); letter-spacing: 2px; margin-bottom: 48px; line-height: 2; }
+  .btn-cta { display: inline-block; font-family: 'Cormorant Garamond', serif; font-size: 15px; letter-spacing: 4px; color: var(--black); background: linear-gradient(135deg, var(--gold-light), var(--gold)); text-decoration: none; padding: 18px 56px; text-transform: uppercase; transition: all 0.3s ease; }
+  .btn-cta:hover { box-shadow: 0 0 40px rgba(201,168,76,0.4); transform: translateY(-2px); }
+  #contact { scroll-margin-top: 80px; }
+  footer { padding: 40px; text-align: center; border-top: 1px solid rgba(201,168,76,0.15); background: var(--black-mid); }
+  .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 18px; color: var(--gold); letter-spacing: 4px; margin-bottom: 8px; }
   footer p { font-size: 11px; color: var(--text-sub); letter-spacing: 2px; }
+  .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
   @media (max-width: 768px) {
     nav { padding: 12px 20px; }
-    .business-item { padding: 0 20px; }
+    .biz-slider { padding: 0 20px; }
+    .biz-stage { aspect-ratio: 4/3; }
     .cta-title { font-size: 24px; letter-spacing: 1px; }
     .btn-cta { padding: 14px 36px; font-size: 13px; }
-    .section-title { letter-spacing: 3px; }
-    .cta-sub { font-size: 13px; letter-spacing: 1px; }
     .org-section { padding: 60px 20px; }
-    .business-section { padding: 60px 0; }
     .cta-section { padding: 80px 20px; }
-  }
-
-  /* ① 事業部カード hover発光 */
-  .business-item {
-    transition: transform 0.3s ease;
-  }
-  .business-item:hover {
-    transform: translateY(-4px);
-  }
-  .business-item:hover img {
-    box-shadow: 0 8px 60px rgba(201,168,76,0.4);
-    border-color: rgba(201,168,76,0.6);
-  }
-
-  /* ② ゴールドラインアニメーション */
-  @keyframes goldFlow {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
-  .section-divider {
-    background: linear-gradient(90deg, transparent, var(--gold), var(--gold-light), var(--gold), transparent) !important;
-    background-size: 200% 200% !important;
-    animation: goldFlow 3s ease infinite;
-  }
-
-  /* ③ スクロールフェードイン */
-  .fade-in {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-  }
-  .fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
   }
 </style>
 </head>
@@ -278,55 +112,98 @@
     <div class="section-divider"></div>
   </div>
 
-  <div class="business-item">
-    <img src="biz_01.png" alt="投資・M&A事業部">
-    <div class="business-item-footer">
-      <a href="https://www.youtube.com/watch?v=-rhaaB4x8T8&cc_load_policy=0" target="_blank" class="btn-detail">事業紹介動画を見る</a>
+  <div class="biz-slider">
+    <div class="biz-stage" id="bizStage">
+
+      <div class="biz-slide active">
+        <img src="biz_01.png" alt="投資・M&A事業部">
+        <div class="biz-overlay"></div>
+        <div class="biz-content">
+          <p class="biz-eyebrow">Investment & M&A</p>
+          <div class="biz-line"></div>
+          <h3 class="biz-title">投資・M&A</h3>
+          <p class="biz-copy">誰も気づく前に、動く。</p>
+        </div>
+      </div>
+
+      <div class="biz-slide">
+        <img src="biz_02.png" alt="不動産事業部">
+        <div class="biz-overlay"></div>
+        <div class="biz-content">
+          <p class="biz-eyebrow">Real Estate</p>
+          <div class="biz-line"></div>
+          <h3 class="biz-title">不動産</h3>
+          <p class="biz-copy">場所を選ぶのではなく、場所を育てる。</p>
+        </div>
+      </div>
+
+      <div class="biz-slide">
+        <img src="biz_03.png" alt="ホテル・ホスピタリティ事業部">
+        <div class="biz-overlay"></div>
+        <div class="biz-content">
+          <p class="biz-eyebrow">Hotel & Hospitality</p>
+          <div class="biz-line"></div>
+          <h3 class="biz-title">ホテル・ホスピタリティ</h3>
+          <p class="biz-copy">滞在は終わっても、記憶は残る。</p>
+        </div>
+      </div>
+
+      <div class="biz-slide">
+        <img src="biz_04.png" alt="宝石・貴金属事業部">
+        <div class="biz-overlay"></div>
+        <div class="biz-content">
+          <p class="biz-eyebrow">Jewelry & Precious Metals</p>
+          <div class="biz-line"></div>
+          <h3 class="biz-title">宝石・貴金属</h3>
+          <p class="biz-copy">想いを、永遠にする。</p>
+        </div>
+      </div>
+
+      <div class="biz-slide">
+        <img src="biz_05.png" alt="国際事業部">
+        <div class="biz-overlay"></div>
+        <div class="biz-content">
+          <p class="biz-eyebrow">International Business</p>
+          <div class="biz-line"></div>
+          <h3 class="biz-title">国際事業</h3>
+          <p class="biz-copy">未知を、越える。</p>
+        </div>
+      </div>
+
+      <div class="biz-slide">
+        <img src="biz_06.png" alt="テクノロジー事業部">
+        <div class="biz-overlay"></div>
+        <div class="biz-content">
+          <p class="biz-eyebrow">Technology</p>
+          <div class="biz-line"></div>
+          <h3 class="biz-title">テクノロジー</h3>
+          <p class="biz-copy">New Normalを、実現する。</p>
+        </div>
+      </div>
+
+      <div class="biz-slide">
+        <img src="biz_07.png" alt="エンターテインメント事業部">
+        <div class="biz-overlay"></div>
+        <div class="biz-content">
+          <p class="biz-eyebrow">Entertainment</p>
+          <div class="biz-line"></div>
+          <h3 class="biz-title">エンターテインメント</h3>
+          <p class="biz-copy">記憶に刻む。</p>
+        </div>
+      </div>
+
+      <div class="biz-tabs" id="bizTabs">
+        <button class="biz-tab active" data-index="0">Investment</button>
+        <button class="biz-tab" data-index="1">Real Estate</button>
+        <button class="biz-tab" data-index="2">Hotel</button>
+        <button class="biz-tab" data-index="3">Jewelry</button>
+        <button class="biz-tab" data-index="4">International</button>
+        <button class="biz-tab" data-index="5">Technology</button>
+        <button class="biz-tab" data-index="6">Entertainment</button>
+      </div>
+
     </div>
   </div>
-
-  <div class="business-item">
-    <img src="biz_02.png" alt="不動産事業部">
-    <div class="business-item-footer">
-      <a href="https://www.youtube.com/watch?v=He8jl3m5hgA&cc_load_policy=0" target="_blank" class="btn-detail">事業紹介動画を見る</a>
-    </div>
-  </div>
-
-  <div class="business-item">
-    <img src="biz_03.png" alt="ホテル・ホスピタリティ事業部">
-    <div class="business-item-footer">
-      <a href="https://www.youtube.com/watch?v=x8f4hEWrnpk&cc_load_policy=0" target="_blank" class="btn-detail">事業紹介動画を見る</a>
-    </div>
-  </div>
-
-  <div class="business-item">
-    <img src="biz_04.png" alt="宝石・貴金属事業部">
-    <div class="business-item-footer">
-      <a href="https://www.youtube.com/watch?v=QRxD3ZrU0aU&cc_load_policy=0" target="_blank" class="btn-detail">事業紹介動画を見る</a>
-    </div>
-  </div>
-
-  <div class="business-item">
-    <img src="biz_05.png" alt="国際事業部">
-    <div class="business-item-footer">
-      <a href="https://www.youtube.com/watch?v=zBnCytpC9DA&cc_load_policy=0" target="_blank" class="btn-detail">事業紹介動画を見る</a>
-    </div>
-  </div>
-
-  <div class="business-item">
-    <img src="biz_06.png" alt="テクノロジー事業部">
-    <div class="business-item-footer">
-      <a href="https://www.youtube.com/watch?v=WGQvOMwsp1k&cc_load_policy=0" target="_blank" class="btn-detail">事業紹介動画を見る</a>
-    </div>
-  </div>
-
-  <div class="business-item">
-    <img src="biz_07.png" alt="エンターテインメント事業部">
-    <div class="business-item-footer">
-      <a href="https://www.youtube.com/watch?v=dFzV4xh5Q5M&cc_load_policy=0" target="_blank" class="btn-detail">事業紹介動画を見る</a>
-    </div>
-  </div>
-
 </div>
 
 <div style="text-align:center; padding:60px 40px; background:var(--black);">
@@ -339,17 +216,14 @@
     <h2 style="font-family:'Cormorant Garamond',serif; font-size:32px; color:var(--gold-light); letter-spacing:4px;">組織図</h2>
     <div class="section-divider"></div>
   </div>
-  <img src="org.png" alt="NEXFORTIUM HOLDINGS 組織図 - 国内8拠点・海外11拠点・7事業部">
+  <img src="org.png" alt="NEXFORTIUM HOLDINGS 組織図" class="fade-in">
   <p style="text-align:center; font-family:'Noto Serif JP',serif; font-size:14px; color:var(--text-sub); letter-spacing:2px; margin-top:24px; line-height:2;">国内8拠点・海外11拠点を基盤に、各事業部が連携して事業を推進しています。</p>
 </div>
 
 <div class="cta-section" id="contact">
   <p class="section-title">Join Us</p>
   <h2 class="cta-title">共に、世界を動かそう。</h2>
-  <p class="cta-sub">
-    現在、立ち上げフェーズのため中核人材を募集しています。<br>
-    あなたの挑戦を、世界19拠点がサポートします。
-  </p>
+  <p class="cta-sub">現在、立ち上げフェーズのため中核人材を募集しています。<br>あなたの挑戦を、世界19拠点がサポートします。</p>
   <a href="https://docs.google.com/forms/d/e/1FAIpQLSdf9vjQZrJtdruCpyMok1UOPcrOYE58Ysv3ZJzCE6sQkTbaHg/viewform?usp=dialog" class="btn-cta">お問い合わせはこちら</a>
 </div>
 
@@ -362,18 +236,25 @@
 </footer>
 
 <script>
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.1 });
+const slides = document.querySelectorAll('.biz-slide');
+const tabs = document.querySelectorAll('.biz-tab');
+let cur = 0, timer;
+function go(n) {
+  slides[cur].classList.remove('active');
+  tabs[cur].classList.remove('active');
+  cur = (n + slides.length) % slides.length;
+  slides[cur].classList.add('active');
+  tabs[cur].classList.add('active');
+}
+function reset() { clearInterval(timer); timer = setInterval(() => go(cur+1), 5000); }
+tabs.forEach(t => t.addEventListener('click', (e) => { e.stopPropagation(); go(parseInt(t.dataset.index)); reset(); }));
+document.getElementById('bizStage').addEventListener('click', () => { go(cur+1); reset(); });
+timer = setInterval(() => go(cur+1), 5000);
 
-  document.querySelectorAll('.business-item, .org-section img').forEach(el => {
-    el.classList.add('fade-in');
-    observer.observe(el);
-  });
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 </script>
 </body>
 </html>
