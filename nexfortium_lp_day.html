@@ -30,279 +30,66 @@
     --border: rgba(201,168,76,0.2);
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    background: var(--navy);
-    color: var(--text-main);
-    font-family: 'Noto Serif JP', serif;
-    overflow-x: hidden;
-  }
-
-  /* ナビゲーション */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    padding: 16px 40px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: rgba(26,37,64,0.95);
-    border-bottom: 1px solid var(--border);
-    backdrop-filter: blur(12px);
-    box-shadow: 0 2px 20px rgba(0,0,0,0.3);
-  }
-  .nav-logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 20px;
-    font-weight: 700;
-    color: var(--gold-light);
-    letter-spacing: 3px;
-  }
-  .nav-sub {
-    font-size: 10px;
-    color: var(--text-sub);
-    letter-spacing: 2px;
-    margin-top: 2px;
-  }
-  .nav-cta {
-    font-size: 12px;
-    letter-spacing: 3px;
-    color: var(--gold-light);
-    text-decoration: none;
-    border: 1px solid rgba(212,184,112,0.4);
-    padding: 8px 20px;
-    transition: all 0.3s ease;
-    font-family: 'Cormorant Garamond', serif;
-    text-transform: uppercase;
-  }
-  .nav-cta:hover {
-    background: rgba(212,184,112,0.12);
-    border-color: var(--gold-light);
-  }
-
-  /* ヒーロー */
+  body { background: var(--navy); color: var(--text-main); font-family: 'Noto Serif JP', serif; overflow-x: hidden; }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 16px 40px; display: flex; align-items: center; justify-content: space-between; background: rgba(26,37,64,0.95); border-bottom: 1px solid var(--border); backdrop-filter: blur(12px); box-shadow: 0 2px 20px rgba(0,0,0,0.3); }
+  .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 700; color: var(--gold-light); letter-spacing: 3px; }
+  .nav-sub { font-size: 10px; color: var(--text-sub); letter-spacing: 2px; margin-top: 2px; }
+  .nav-cta { font-size: 12px; letter-spacing: 3px; color: var(--gold-light); text-decoration: none; border: 1px solid rgba(212,184,112,0.4); padding: 8px 20px; transition: all 0.3s ease; font-family: 'Cormorant Garamond', serif; text-transform: uppercase; }
+  .nav-cta:hover { background: rgba(212,184,112,0.12); border-color: var(--gold-light); }
   .hero { width: 100%; padding-top: 72px; }
   .hero img { width: 100%; display: block; }
-  .hero-sub {
-    text-align: center;
-    padding: 28px 20px 20px;
-    background: var(--navy-mid);
-    border-bottom: 1px solid var(--border);
-  }
-  .hero-sub-label {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 13px;
-    letter-spacing: 4px;
-    color: var(--text-sub);
-    text-transform: uppercase;
-  }
-  .hero-sub-flags {
-    font-size: 20px;
-    letter-spacing: 4px;
-    margin: 10px 0 4px;
-  }
-  .hero-sub-cities {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 12px;
-    letter-spacing: 2px;
-    color: var(--text-sub);
-  }
+  .hero-sub { text-align: center; padding: 28px 20px 20px; background: var(--navy-mid); border-bottom: 1px solid var(--border); }
+  .hero-sub-label { font-family: 'Cormorant Garamond', serif; font-size: 13px; letter-spacing: 4px; color: var(--text-sub); text-transform: uppercase; }
+  .hero-sub-flags { font-size: 20px; letter-spacing: 4px; margin: 10px 0 4px; }
+  .hero-sub-cities { font-family: 'Cormorant Garamond', serif; font-size: 12px; letter-spacing: 2px; color: var(--text-sub); }
+  .section-title { font-family: 'Cormorant Garamond', serif; font-size: 13px; letter-spacing: 6px; color: var(--gold); text-transform: uppercase; margin-bottom: 16px; text-align: center; }
+  .section-divider { width: 60px; height: 1px; margin: 16px auto 48px; background: linear-gradient(90deg, transparent, var(--gold), var(--gold-light), var(--gold), transparent); background-size: 200% 200%; animation: goldFlow 3s ease infinite; }
+  @keyframes goldFlow { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
 
-  /* セクション共通 */
-  .section-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 13px;
-    letter-spacing: 6px;
-    color: var(--gold);
-    text-transform: uppercase;
-    margin-bottom: 16px;
-    text-align: center;
-  }
-  .section-divider {
-    width: 60px;
-    height: 1px;
-    margin: 16px auto 48px;
-    background: linear-gradient(90deg, transparent, var(--gold), var(--gold-light), var(--gold), transparent);
-    background-size: 200% 200%;
-    animation: goldFlow 3s ease infinite;
-  }
-  @keyframes goldFlow {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
+  /* スライドショー（白背景） */
+  .biz-slideshow { padding: 80px 40px 60px; background: #E8EDF5; }
+  .biz-slideshow .section-title { color: var(--gold-dark); }
+  .biz-stage { max-width: 900px; margin: 0 auto; background: #E8EDF5; border: 1px solid rgba(201,168,76,0.3); position: relative; cursor: pointer; box-shadow: 0 4px 40px rgba(0,0,0,0.08); }
+  .biz-slide { display: none; padding: 80px 60px 0; text-align: center; }
+  .biz-slide.active { display: block; }
+  .biz-eyebrow { font-family: 'Cormorant Garamond', serif; font-size: 11px; letter-spacing: 0.22em; color: #aaa; text-transform: uppercase; margin-bottom: 1.2rem; }
+  .biz-line { width: 32px; height: 1px; background: rgba(201,168,76,0.6); margin: 0 auto 1.4rem; }
+  .biz-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(28px, 4vw, 48px); font-weight: 300; color: #1A2540; letter-spacing: 0.04em; line-height: 1.1; margin-bottom: 1rem; }
+  .biz-copy { font-family: 'Noto Serif JP', serif; font-size: 14px; color: var(--gold-dark); letter-spacing: 0.06em; padding-bottom: 60px; }
+  .biz-tabs { display: flex; flex-wrap: wrap; justify-content: center; border-top: 1px solid rgba(201,168,76,0.2); background: #DDE3F0; }
+  .biz-tab { font-family: 'Cormorant Garamond', serif; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; padding: 13px 14px; border: none; border-top: 2px solid transparent; background: none; cursor: pointer; white-space: nowrap; color: #666666 !important; }
+  .biz-tab.active { color: var(--gold-dark) !important; border-top: 2px solid var(--gold); }
 
   /* 事業部セクション */
-  .business-section {
-    padding: 100px 0;
-    background: var(--navy);
-  }
-  .business-title-wrap {
-    text-align: center;
-    padding: 0 40px 48px;
-  }
-  .business-item {
-    max-width: 1200px;
-    margin: 0 auto 60px;
-    padding: 0 40px;
-    transition: transform 0.3s ease;
-  }
+  .business-section { padding: 100px 0; background: var(--navy); }
+  .business-title-wrap { text-align: center; padding: 0 40px 48px; }
+  .business-item { max-width: 1200px; margin: 0 auto 60px; padding: 0 40px; transition: transform 0.3s ease; }
   .business-item:hover { transform: translateY(-4px); }
-  .business-item img {
-    width: 100%;
-    display: block;
-    border: 1px solid var(--border);
-    box-shadow: 0 4px 40px rgba(0,0,0,0.4);
-    transition: all 0.3s ease;
-  }
-  .business-item:hover img {
-    box-shadow: 0 8px 60px rgba(201,168,76,0.3);
-    border-color: rgba(201,168,76,0.5);
-  }
-  .business-item-footer {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    padding: 16px 0;
-    border-bottom: 1px solid rgba(212,184,112,0.12);
-  }
-  .btn-detail {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 13px;
-    letter-spacing: 3px;
-    color: var(--gold-light);
-    text-decoration: none;
-    text-transform: uppercase;
-    padding: 10px 24px;
-    border: 1px solid rgba(212,184,112,0.35);
-    transition: all 0.3s ease;
-  }
-  .btn-detail:hover {
-    background: rgba(212,184,112,0.1);
-    border-color: var(--gold-light);
-  }
-  .btn-detail::after { content: ' →'; }
-
-  /* 組織図セクション */
-  .org-section {
-    padding: 100px 40px;
-    background: var(--navy-mid);
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-  }
-  .org-section img {
-    width: 100%;
-    display: block;
-    max-width: 1200px;
-    margin: 0 auto;
-    border: 1px solid var(--border);
-    box-shadow: 0 4px 40px rgba(0,0,0,0.4);
-  }
-
-  /* 中間CTA */
-  .mid-cta {
-    text-align: center;
-    padding: 60px 40px;
-    background: var(--navy);
-    border-bottom: 1px solid var(--border);
-  }
-
-  /* メインCTAセクション */
-  .cta-section {
-    padding: 120px 40px;
-    text-align: center;
-    background: var(--navy-mid);
-    position: relative;
-    overflow: hidden;
-  }
-  .cta-section::before {
-    content: '';
-    position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    width: 700px; height: 700px;
-    background: radial-gradient(circle, rgba(201,168,76,0.07) 0%, transparent 70%);
-    pointer-events: none;
-  }
-  .cta-section::after {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--gold), transparent);
-  }
-  .cta-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 42px;
-    font-weight: 600;
-    color: var(--gold-light);
-    letter-spacing: 4px;
-    margin-bottom: 16px;
-  }
-  .cta-sub {
-    font-size: 14px;
-    color: var(--text-sub);
-    letter-spacing: 2px;
-    margin-bottom: 48px;
-    line-height: 2;
-  }
-  .btn-cta {
-    display: inline-block;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 15px;
-    letter-spacing: 4px;
-    color: var(--navy);
-    background: linear-gradient(135deg, var(--gold-light), var(--gold));
-    text-decoration: none;
-    padding: 18px 56px;
-    text-transform: uppercase;
-    transition: all 0.3s ease;
-  }
-  .btn-cta:hover {
-    box-shadow: 0 0 40px rgba(201,168,76,0.45);
-    transform: translateY(-2px);
-  }
-
+  .business-item img { width: 100%; display: block; border: 1px solid var(--border); box-shadow: 0 4px 40px rgba(0,0,0,0.4); transition: all 0.3s ease; }
+  .business-item:hover img { box-shadow: 0 8px 60px rgba(201,168,76,0.3); border-color: rgba(201,168,76,0.5); }
+  .org-section { padding: 100px 40px; background: var(--navy-mid); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .org-section img { width: 100%; display: block; max-width: 1200px; margin: 0 auto; border: 1px solid var(--border); box-shadow: 0 4px 40px rgba(0,0,0,0.4); }
+  .mid-cta { text-align: center; padding: 60px 40px; background: var(--navy); border-bottom: 1px solid var(--border); }
+  .cta-section { padding: 120px 40px; text-align: center; background: var(--navy-mid); position: relative; overflow: hidden; }
+  .cta-section::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 700px; height: 700px; background: radial-gradient(circle, rgba(201,168,76,0.07) 0%, transparent 70%); pointer-events: none; }
+  .cta-section::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+  .cta-title { font-family: 'Cormorant Garamond', serif; font-size: 42px; font-weight: 600; color: var(--gold-light); letter-spacing: 4px; margin-bottom: 16px; }
+  .cta-sub { font-size: 14px; color: var(--text-sub); letter-spacing: 2px; margin-bottom: 48px; line-height: 2; }
+  .btn-cta { display: inline-block; font-family: 'Cormorant Garamond', serif; font-size: 15px; letter-spacing: 4px; color: var(--navy); background: linear-gradient(135deg, var(--gold-light), var(--gold)); text-decoration: none; padding: 18px 56px; text-transform: uppercase; transition: all 0.3s ease; }
+  .btn-cta:hover { box-shadow: 0 0 40px rgba(201,168,76,0.45); transform: translateY(-2px); }
   #contact { scroll-margin-top: 80px; }
-
-  /* フッター */
-  footer {
-    padding: 40px;
-    text-align: center;
-    border-top: 1px solid var(--border);
-    background: var(--navy-mid);
-  }
-  .footer-logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 18px;
-    color: var(--gold-light);
-    letter-spacing: 4px;
-    margin-bottom: 8px;
-  }
+  footer { padding: 40px; text-align: center; border-top: 1px solid var(--border); background: var(--navy-mid); }
+  .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 18px; color: var(--gold-light); letter-spacing: 4px; margin-bottom: 8px; }
   footer p { font-size: 11px; color: var(--text-sub); letter-spacing: 2px; }
-
-  /* フェードイン */
-  .fade-in {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-  }
-  .fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  /* レスポンシブ */
+  .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
   @media (max-width: 768px) {
     nav { padding: 12px 20px; }
     .business-item { padding: 0 20px; }
+    .biz-slideshow { padding: 60px 20px 40px; }
+    .biz-slide { padding: 60px 30px 0; }
     .cta-title { font-size: 24px; letter-spacing: 1px; }
     .btn-cta { padding: 14px 36px; font-size: 13px; }
-    .section-title { letter-spacing: 3px; }
-    .cta-sub { font-size: 13px; letter-spacing: 1px; }
     .org-section { padding: 60px 20px; }
     .business-section { padding: 60px 0; }
     .cta-section { padding: 80px 20px; }
@@ -320,7 +107,7 @@
 </nav>
 
 <div class="hero">
-  <img src="hero.png" alt="NEXFORTIUM HOLDINGS 採用情報 - 少人数で、事業を動かす。中核人材募集">
+  <img src="hero.png" alt="NEXFORTIUM HOLDINGS 採用情報">
   <div class="hero-sub">
     <p class="hero-sub-label">GLOBAL HOLDINGS &nbsp;|&nbsp; 七事業部 &nbsp;|&nbsp; 採用強化中</p>
     <p class="hero-sub-flags">🇸🇬 🇯🇵 🇲🇾 🇻🇳 🇵🇭 🇮🇩 🇹🇭 🇨🇳 🇭🇰 🇰🇷 🇦🇺</p>
@@ -328,62 +115,82 @@
   </div>
 </div>
 
+<!-- スライドショー（白背景） -->
+<div class="biz-slideshow">
+  <div style="text-align:center; padding-bottom:48px;">
+    <p class="section-title">Our Business</p>
+    <h2 style="font-family:'Cormorant Garamond',serif; font-size:24px; color:#1A2540; letter-spacing:2px;">多角的な事業展開</h2>
+    <div class="section-divider"></div>
+  </div>
+  <div class="biz-stage" id="bizStage">
+    <div class="biz-slide active">
+      <p class="biz-eyebrow">Investment & M&A</p>
+      <div class="biz-line"></div>
+      <h3 class="biz-title">投資・M&A</h3>
+      <p class="biz-copy">誰も気づく前に、動く。</p>
+    </div>
+    <div class="biz-slide">
+      <p class="biz-eyebrow">Real Estate</p>
+      <div class="biz-line"></div>
+      <h3 class="biz-title">不動産</h3>
+      <p class="biz-copy">場所を選ぶのではなく、場所を育てる。</p>
+    </div>
+    <div class="biz-slide">
+      <p class="biz-eyebrow">Hotel & Hospitality</p>
+      <div class="biz-line"></div>
+      <h3 class="biz-title">ホテル・ホスピタリティ</h3>
+      <p class="biz-copy">滞在は終わっても、記憶は残る。</p>
+    </div>
+    <div class="biz-slide">
+      <p class="biz-eyebrow">Jewelry & Precious Metals</p>
+      <div class="biz-line"></div>
+      <h3 class="biz-title">宝石・貴金属</h3>
+      <p class="biz-copy">想いを、永遠にする。</p>
+    </div>
+    <div class="biz-slide">
+      <p class="biz-eyebrow">International Business</p>
+      <div class="biz-line"></div>
+      <h3 class="biz-title">国際事業</h3>
+      <p class="biz-copy">未知を、越える。</p>
+    </div>
+    <div class="biz-slide">
+      <p class="biz-eyebrow">Technology</p>
+      <div class="biz-line"></div>
+      <h3 class="biz-title">テクノロジー</h3>
+      <p class="biz-copy">New Normalを、実現する。</p>
+    </div>
+    <div class="biz-slide">
+      <p class="biz-eyebrow">Entertainment</p>
+      <div class="biz-line"></div>
+      <h3 class="biz-title">エンターテインメント</h3>
+      <p class="biz-copy">記憶に刻む。</p>
+    </div>
+    <div class="biz-tabs" id="bizTabs">
+      <button class="biz-tab active" data-index="0">Investment</button>
+      <button class="biz-tab" data-index="1">Real Estate</button>
+      <button class="biz-tab" data-index="2">Hotel</button>
+      <button class="biz-tab" data-index="3">Jewelry</button>
+      <button class="biz-tab" data-index="4">International</button>
+      <button class="biz-tab" data-index="5">Technology</button>
+      <button class="biz-tab" data-index="6">Entertainment</button>
+    </div>
+  </div>
+</div>
+
+<!-- 事業部セクション（動画リンクなし） -->
 <div class="business-section">
   <div class="business-title-wrap">
     <p class="section-title">Our Business</p>
     <h2 style="font-family:'Cormorant Garamond',serif; font-size:28px; color:var(--gold-light); letter-spacing:2px;">多角的な事業展開</h2>
     <div class="section-divider"></div>
   </div>
-
-  <div class="business-item fade-in">
-    <img src="biz_01.png" alt="投資・M&A事業部">
-    <div class="business-item-footer">
-      <a href="https://vimeo.com/YOUR_VIDEO_ID_01" target="_blank" class="btn-detail">事業紹介動画を見る</a>
-    </div>
-  </div>
-
-  <div class="business-item fade-in">
-    <img src="biz_02.png" alt="不動産事業部">
-    <div class="business-item-footer">
-      <a href="https://vimeo.com/YOUR_VIDEO_ID_02" target="_blank" class="btn-detail">事業紹介動画を見る</a>
-    </div>
-  </div>
-
-  <div class="business-item fade-in">
-    <img src="biz_03.png" alt="ホテル・ホスピタリティ事業部">
-    <div class="business-item-footer">
-      <a href="https://vimeo.com/YOUR_VIDEO_ID_03" target="_blank" class="btn-detail">事業紹介動画を見る</a>
-    </div>
-  </div>
-
-  <div class="business-item fade-in">
-    <img src="biz_04.png" alt="宝石・貴金属事業部">
-    <div class="business-item-footer">
-      <a href="https://vimeo.com/YOUR_VIDEO_ID_04" target="_blank" class="btn-detail">事業紹介動画を見る</a>
-    </div>
-  </div>
-
-  <div class="business-item fade-in">
-    <img src="biz_05.png" alt="国際事業部">
-    <div class="business-item-footer">
-      <a href="https://vimeo.com/YOUR_VIDEO_ID_05" target="_blank" class="btn-detail">事業紹介動画を見る</a>
-    </div>
-  </div>
-
-  <div class="business-item fade-in">
-    <img src="biz_06.png" alt="テクノロジー事業部">
-    <div class="business-item-footer">
-      <a href="https://vimeo.com/YOUR_VIDEO_ID_06" target="_blank" class="btn-detail">事業紹介動画を見る</a>
-    </div>
-  </div>
-
-  <div class="business-item fade-in">
-    <img src="biz_07.png" alt="エンターテインメント事業部">
-    <div class="business-item-footer">
-      <a href="https://vimeo.com/YOUR_VIDEO_ID_07" target="_blank" class="btn-detail">事業紹介動画を見る</a>
-    </div>
-  </div>
-
+  <div class="business-item fade-in"><img src="biz_01.png" alt="投資・M&A事業部"></div>
+  <div class="business-item fade-in"><img src="biz_02.png" alt="不動産事業部"></div>
+  <div class="business-item fade-in"><img src="biz_03.png" alt="ホテル・ホスピタリティ事業部"></div>
+  <div class="business-item fade-in"><img src="biz_04.png" alt="宝石・貴金属事業部"></div>
+  <div class="business-item fade-in"><img src="biz_05.png" alt="国際事業部"></div>
+  <div class="business-item fade-in"><img src="biz_06.png" alt="テクノロジー事業部"></div>
+  <div class="business-item fade-in"><img src="biz_07.png" alt="エンターテインメント事業部"></div>
 </div>
 
 <div class="mid-cta">
@@ -396,17 +203,14 @@
     <h2 style="font-family:'Cormorant Garamond',serif; font-size:32px; color:var(--gold-light); letter-spacing:4px;">組織図</h2>
     <div class="section-divider"></div>
   </div>
-  <img src="org.png" alt="NEXFORTIUM HOLDINGS 組織図 - 国内8拠点・海外11拠点・7事業部" class="fade-in">
+  <img src="org.png" alt="NEXFORTIUM HOLDINGS 組織図" class="fade-in">
   <p style="text-align:center; font-family:'Noto Serif JP',serif; font-size:14px; color:var(--text-sub); letter-spacing:2px; margin-top:24px; line-height:2;">国内8拠点・海外11拠点を基盤に、各事業部が連携して事業を推進しています。</p>
 </div>
 
 <div class="cta-section" id="contact">
   <p class="section-title">Join Us</p>
   <h2 class="cta-title">共に、世界を動かそう。</h2>
-  <p class="cta-sub">
-    現在、立ち上げフェーズのため中核人材を募集しています。<br>
-    あなたの挑戦を、世界19拠点がサポートします。
-  </p>
+  <p class="cta-sub">現在、立ち上げフェーズのため中核人材を募集しています。<br>あなたの挑戦を、世界19拠点がサポートします。</p>
   <a href="https://docs.google.com/forms/d/e/1FAIpQLSdf9vjQZrJtdruCpyMok1UOPcrOYE58Ysv3ZJzCE6sQkTbaHg/viewform?usp=dialog" class="btn-cta">お問い合わせはこちら</a>
 </div>
 
@@ -418,17 +222,25 @@
 </footer>
 
 <script>
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.1 });
+  const slides = document.querySelectorAll('.biz-slide');
+  const tabs = document.querySelectorAll('.biz-tab');
+  let cur = 0, timer;
+  function go(n) {
+    slides[cur].classList.remove('active');
+    tabs[cur].classList.remove('active');
+    cur = (n + slides.length) % slides.length;
+    slides[cur].classList.add('active');
+    tabs[cur].classList.add('active');
+  }
+  function reset() { clearInterval(timer); timer = setInterval(() => go(cur+1), 5000); }
+  tabs.forEach(t => t.addEventListener('click', (e) => { e.stopPropagation(); go(parseInt(t.dataset.index)); reset(); }));
+  document.getElementById('bizStage').addEventListener('click', () => { go(cur+1); reset(); });
+  timer = setInterval(() => go(cur+1), 5000);
 
-  document.querySelectorAll('.fade-in').forEach(el => {
-    observer.observe(el);
-  });
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 </script>
 </body>
 </html>
